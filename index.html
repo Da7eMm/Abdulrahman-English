@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My English Journey</title>
 <style>
-  :root {
+  :root[data-theme="light"] {
     --bg-color: #f8fafc;
     --card-bg: #ffffff;
     --card-inner: #f1f5f9;
@@ -15,6 +15,20 @@
     --accent-yellow: #d97706;
     --text-primary: #0f172a;
     --text-secondary: #475569;
+    --shadow: 0 10px 25px rgba(0,0,0,0.05);
+  }
+
+  :root[data-theme="dark"] {
+    --bg-color: #080f1e;
+    --card-bg: rgba(255, 255, 255, 0.06);
+    --card-inner: rgba(15, 23, 42, 0.7);
+    --border: rgba(255, 255, 255, 0.12);
+    --accent-blue: #38bdf8;
+    --accent-cyan: #22d3ee;
+    --accent-yellow: #fbbf24;
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --shadow: 0 10px 30px rgba(0,0,0,0.4);
   }
 
   body {
@@ -24,44 +38,65 @@
     margin: 0;
     padding: 20px 15px 90px 15px;
     direction: rtl;
+    transition: background 0.3s ease, color 0.3s ease;
   }
 
   .container { max-width: 950px; margin: 0 auto; }
 
   .hero-header {
-    background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+    background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 24px;
-    padding: 24px;
+    padding: 20px;
     text-align: center;
     margin-bottom: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .hero-title {
-    font-size: 24pt;
+    font-size: 20pt;
     font-weight: 800;
     color: var(--accent-blue);
-    margin: 0 0 8px 0;
+    margin: 0;
+  }
+
+  .top-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .theme-toggle-btn {
+    background: var(--card-inner);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 8px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 9pt;
   }
 
   .about-me-badge {
-    display: inline-block;
-    background: #ffffff;
+    background: var(--card-inner);
     border: 1px solid var(--accent-cyan);
     padding: 6px 14px;
     border-radius: 12px;
-    font-size: 10pt;
+    font-size: 9pt;
     color: var(--accent-cyan);
     direction: ltr;
     font-weight: 700;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
   }
 
   .swipe-hint {
     text-align: center;
     color: var(--accent-yellow);
-    font-size: 10.5pt;
+    font-size: 10pt;
     margin-bottom: 15px;
     font-weight: 700;
   }
@@ -87,25 +122,22 @@
     border-radius: 24px;
     padding: 22px;
     box-sizing: border-box;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow);
+    transition: background 0.3s ease, border 0.3s ease;
   }
 
   @media (min-width: 768px) { .section-card { flex: 0 0 440px; } }
 
   .section-title {
-    font-size: 13pt;
+    font-size: 12pt;
     font-weight: 800;
     color: var(--accent-blue);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    margin-bottom: 14px;
   }
 
-  /* Sub-tabs inside Learning Section */
   .learning-tabs {
     display: flex;
-    gap: 6px;
+    gap: 5px;
     margin-bottom: 14px;
     background: var(--card-inner);
     padding: 4px;
@@ -115,16 +147,16 @@
     flex: 1;
     background: transparent;
     border: none;
-    padding: 8px 4px;
+    padding: 8px 2px;
     border-radius: 10px;
     font-weight: 700;
-    font-size: 9pt;
+    font-size: 8.5pt;
     cursor: pointer;
     color: var(--text-secondary);
     text-align: center;
   }
   .ltab-btn.active {
-    background: #ffffff;
+    background: var(--card-bg);
     color: var(--accent-blue);
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   }
@@ -132,27 +164,13 @@
   .learning-panel { display: none; }
   .learning-panel.active { display: block; }
 
-  .form-group { margin-bottom: 12px; }
-
-  input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background: #ffffff;
-    color: var(--text-primary);
-    box-sizing: border-box;
-    font-size: 10pt;
-    outline: none;
-  }
-
   .btn {
     width: 100%;
     padding: 12px;
     border: none;
     border-radius: 12px;
     font-weight: 800;
-    font-size: 10pt;
+    font-size: 9.5pt;
     cursor: pointer;
     margin-top: 6px;
   }
@@ -162,45 +180,23 @@
   .btn-cyan { background: var(--accent-cyan); color: #fff; }
   .btn-yellow { background: var(--accent-yellow); color: #fff; }
 
-  .save-box {
+  .content-list-box {
     background: var(--card-inner);
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 12px;
-    margin-top: 14px;
-    max-height: 140px;
+    margin-top: 10px;
+    max-height: 220px;
     overflow-y: auto;
   }
 
   .item-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 6px;
-    font-size: 9.5pt;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .grid-2x2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-top: 10px;
-  }
-
-  .opt-btn {
-    background: var(--card-inner);
-    border: 1px solid var(--border);
-    color: var(--text-primary);
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 700;
     font-size: 9pt;
-    text-align: center;
   }
 
   .story-levels {
@@ -232,22 +228,36 @@
     border-radius: 16px;
     padding: 14px;
     margin-top: 10px;
-    max-height: 300px;
+    max-height: 280px;
     overflow-y: auto;
+  }
+
+  .opt-btn {
+    background: var(--card-inner);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 8.5pt;
+    text-align: center;
+    width: 48%;
+    display: inline-block;
   }
 
   .motivation-bar {
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    background: #ffffff;
+    background: var(--card-bg);
     border-top: 1px solid var(--border);
     padding: 12px;
     text-align: center;
-    font-size: 10pt;
+    font-size: 9.5pt;
     font-weight: 800;
     color: var(--accent-blue);
     z-index: 100;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.03);
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
   }
 </style>
 </head>
@@ -257,72 +267,59 @@
   
   <div class="hero-header">
     <div class="hero-title">My English Journey ⚡</div>
-    <div class="about-me-badge">👤 Abdulrahman | Aiming for C1 & C2</div>
+    <div class="top-controls">
+      <button class="theme-toggle-btn" onclick="toggleTheme()">🌓 وضع السمة</button>
+      <div class="about-me-badge">👤 Abdulrahman (C1/C2)</div>
+    </div>
   </div>
 
-  <div class="swipe-hint">👈 اسحب أفقياً لتتصفح الأقسام (قسم التعلم المتكامل & مكتبة قصص BBC/Oxford) 👉</div>
+  <div class="swipe-hint">👈 اسحب أفقياً لتتصفح (قائمة التعلم الاحترافي & مكتبة القصص العالمية) 👉</div>
 
   <div class="slider-container">
     
-    <!-- 1. Unified Learning Section (Vocab, Idioms, Tenses) -->
+    <!-- 1. Learn 10 Section (Vocab, Idioms, Tenses) -->
     <div class="section-card">
-      <div class="section-title">🎯 قسم التعلم الاحترافي</div>
+      <div class="section-title">🚀 مركز التعلم الذكي (تعلم 10)</div>
       
       <div class="learning-tabs">
-        <button class="ltab-btn active" onclick="switchTab('vocab', this)">الكلمات 📚</button>
-        <button class="ltab-btn" onclick="switchTab('idioms', this)">Idioms 💡</button>
-        <button class="ltab-btn" onclick="switchTab('tenses', this)">الأزمنة ⏳</button>
+        <button class="ltab-btn active" onclick="switchLearnTab('vocab', this)">تعلم 10 كلمات 📚</button>
+        <button class="ltab-btn" onclick="switchLearnTab('idioms', this)">تعلم 10 Idioms 💡</button>
+        <button class="ltab-btn" onclick="switchLearnTab('tenses', this)">تعلم 10 أزمنة ⏳</button>
       </div>
 
-      <!-- Vocab Panel -->
-      <div id="panel-vocab" class="learning-panel active">
-        <div class="form-group"><input type="text" id="vocabWord" placeholder="English Word"></div>
-        <div class="form-group"><input type="text" id="vocabMeaning" placeholder="المعنى بالعربي"></div>
-        <button class="btn btn-blue" onclick="addVocab()">حفظ الكلمة 💾</button>
-        <div class="save-box">
-          <div style="color:var(--accent-blue); font-size:9pt; font-weight:700; margin-bottom:6px;">الكلمات المحفوظة:</div>
-          <div id="vocabSavedList"><span style="color:#94a3b8; font-size:8.5pt;">لا توجد كلمات بعد</span></div>
-        </div>
-        <button class="btn btn-cyan" onclick="startVocabPractice()" style="margin-top:10px;">تمرين الاختيار من متعدد 🎯</button>
-        <div id="vocabPracticeArea"></div>
-      </div>
-
-      <!-- Idioms Panel -->
-      <div id="panel-idioms" class="learning-panel">
-        <div class="form-group"><input type="text" id="idiomText" placeholder="English Idiom (e.g. Break a leg)"></div>
-        <div class="form-group"><input type="text" id="idiomMeaning" placeholder="المعنى والمغزى بالعربي"></div>
-        <button class="btn btn-blue" onclick="addIdiom()">حفظ المصطلح 💾</button>
-        <div class="save-box" style="max-height:210px;">
-          <div style="color:var(--accent-blue); font-size:9pt; font-weight:700; margin-bottom:6px;">المصطلحات المحفوظة:</div>
-          <div id="idiomSavedList"><span style="color:#94a3b8; font-size:8.5pt;">لا توجد مصطلحات بعد</span></div>
+      <!-- Learn Vocab Panel -->
+      <div id="learn-panel-vocab" class="learning-panel active">
+        <p style="font-size: 8.5pt; color: var(--text-secondary); margin-top:0;">اضغط للتعرف على باقة جديدة من الكلمات المتقدمة:</p>
+        <button class="btn btn-blue" onclick="loadBatch('vocab')">عرض 10 كلمات جديدة 🗂️</button>
+        <div class="content-list-box" id="vocab10List">
+          <span style="color:var(--text-secondary); font-size:8.5pt;">اضغط الزر بالأعلى لاكتشاف الكلمات...</span>
         </div>
       </div>
 
-      <!-- Tenses Panel -->
-      <div id="panel-tenses" class="learning-panel">
-        <div class="form-group">
-          <select id="tenseSelect">
-            <option>Present Simple (المضارع البسيط)</option>
-            <option>Present Continuous (المضارع المستمر)</option>
-            <option>Past Simple (الماضي البسيط)</option>
-            <option>Future Simple (المستقبل البسيط)</option>
-            <option>Present Perfect (المضارع التام)</option>
-          </select>
+      <!-- Learn Idioms Panel -->
+      <div id="learn-panel-idioms" class="learning-panel">
+        <p style="font-size: 8.5pt; color: var(--text-secondary); margin-top:0;">اضغط لاكتشاف أشهر التعبيرات الإنجليزية (Idioms):</p>
+        <button class="btn btn-cyan" onclick="loadBatch('idioms')">عرض 10 Idioms جديدة 💡</button>
+        <div class="content-list-box" id="idioms10List">
+          <span style="color:var(--text-secondary); font-size:8.5pt;">اضغط الزر بالأعلى لاكتشاف المصطلحات...</span>
         </div>
-        <div class="form-group"><input type="text" id="tenseExample" placeholder="اكتب مثالاً لجملة بالزمن"></div>
-        <button class="btn btn-blue" onclick="addTense()">حفظ الزمن والمثال 💾</button>
-        <div class="save-box" style="max-height:210px;">
-          <div style="color:var(--accent-blue); font-size:9pt; font-weight:700; margin-bottom:6px;">الأزمنة المحفوظة:</div>
-          <div id="tenseSavedList"><span style="color:#94a3b8; font-size:8.5pt;">لا توجد أزمنة محفوظة بعد</span></div>
+      </div>
+
+      <!-- Learn Tenses Panel -->
+      <div id="learn-panel-tenses" class="learning-panel">
+        <p style="font-size: 8.5pt; color: var(--text-secondary); margin-top:0;">استعرض أهم قواعد الأزمنة وتراكيبها الدقيقة:</p>
+        <button class="btn btn-yellow" onclick="loadBatch('tenses')">عرض 10 قواعد وأزمنة ⏳</button>
+        <div class="content-list-box" id="tenses10List">
+          <span style="color:var(--text-secondary); font-size:8.5pt;">اضغط الزر بالأعلى لاكتشاف الأزمنة...</span>
         </div>
       </div>
 
     </div>
 
-    <!-- 2. Oxford & BBC Stories & Reading/Listening Section -->
+    <!-- 2. Oxford & BBC Stories Section -->
     <div class="section-card" style="flex: 0 0 92%; max-width: 480px;">
       <div class="section-title">📰📖 مكتبة القصص (Oxford & BBC Style)</div>
-      <p style="font-size: 8.5pt; color: var(--text-secondary); margin-top:0;">اختر المستوى لقراءة قصة مستوحاة من مصادر عالمية، الاستماع لها، ثم اختبار فهمك:</p>
+      <p style="font-size: 8.5pt; color: var(--text-secondary); margin-top:0;">اختر المستوى لقراءة قصة مع الاستماع الصوتي واختبار الفهم:</p>
       
       <div class="story-levels">
         <button class="level-tab active" onclick="loadStory('A1')">A1</button>
@@ -335,15 +332,15 @@
 
       <div class="story-reader-box" id="storyReaderContainer">
         <div id="storySourceBadge" style="font-size:7.5pt; font-weight:800; color:var(--accent-blue); margin-bottom:4px;">SOURCE: OXFORD LEARNER'S READER</div>
-        <h4 id="storyHeader" style="margin:0 0 6px 0; color:var(--text-primary); font-size:10.5pt;">Level A1: The Morning Routine</h4>
-        <p id="storyTextEn" style="direction:ltr; text-align:left; font-size:9.5pt; line-height:1.5; color:#1e293b; margin-bottom:8px;">
+        <h4 id="storyHeader" style="margin:0 0 6px 0; color:var(--text-primary); font-size:10pt;">Level A1: The Morning Routine</h4>
+        <p id="storyTextEn" style="direction:ltr; text-align:left; font-size:9pt; line-height:1.5; color:var(--text-primary); margin-bottom:8px;">
           Tom wakes up early in the morning. He drinks a cup of coffee and opens his laptop. He wants to learn new English words every single day to achieve his goals.
         </p>
-        <p id="storyTextAr" style="font-size:9pt; color:var(--text-secondary); border-top:1px solid var(--border); padding-top:6px; margin:0 0 10px 0;">
+        <p id="storyTextAr" style="font-size:8.5pt; color:var(--text-secondary); border-top:1px solid var(--border); padding-top:6px; margin:0 0 10px 0;">
           [الترجمة]: يستيقظ توم مبكراً في الصباح. يشرب فنجان قهوة ويفتح حاسوبه. يريد تعلم كلمات إنجليزية جديدة كل يوم لتحقيق أهدافه.
         </p>
-        <button class="btn btn-cyan" onclick="speakStoryText()">استمع للنطق الصوتي (Listening) 🔊</button>
-        <button class="btn btn-yellow" onclick="showStoryQuiz()" style="margin-top:6px;">اختبر فهمك للقراءة (Reading Quiz) 📝</button>
+        <button class="btn btn-cyan" onclick="speakStoryText()">استمع للنطق الصوتي 🔊</button>
+        <button class="btn btn-yellow" onclick="showStoryQuiz()" style="margin-top:6px;">اختبر فهمك للقراءة 📝</button>
       </div>
       <div id="storyQuizBox" style="margin-top:8px;"></div>
     </div>
@@ -356,108 +353,75 @@
 </div>
 
 <script>
-  let vocabDB = [];
-  let idiomsDB = [];
-  let tensesDB = [];
+  // Theme Toggle Functionality
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', newTheme);
+  }
 
-  const quotes = [
-    '🔥 "Every word you learn gets you closer to C1 & C2!"',
-    '⭐ "Great things take time. Keep pushing your limits, Abdulrahman!"',
-    '🎯 "Consistency is the key to mastering English syntax & vocab."',
-    '🚀 "Your future self will thank you for studying today!"'
-  ];
-  let quoteIdx = 0;
-  setInterval(() => {
-    quoteIdx = (quoteIdx + 1) % quotes.length;
-    document.getElementById('motivationQuote').innerText = quotes[quoteIdx];
-  }, 4000);
-
-  function switchTab(tabName, btn) {
+  function switchLearnTab(tabName, btn) {
     document.querySelectorAll('.ltab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.learning-panel').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('panel-' + tabName).classList.add('active');
+    document.getElementById('learn-panel-' + tabName).classList.add('active');
   }
 
-  function addVocab() {
-    const word = document.getElementById('vocabWord').value;
-    const meaning = document.getElementById('vocabMeaning').value;
-    if (!word || !meaning) return;
-    vocabDB.unshift({ word, meaning });
-    document.getElementById('vocabWord').value = '';
-    document.getElementById('vocabMeaning').value = '';
-    renderVocabBox();
-  }
-  function renderVocabBox() {
-    const box = document.getElementById('vocabSavedList');
-    box.innerHTML = '';
-    vocabDB.forEach(item => {
-      box.innerHTML += `<div class="item-card"><span style="color:var(--accent-blue); font-weight:bold;">${item.word}</span><span>${item.meaning}</span></div>`;
-    });
-  }
+  // 10 Items Batches Data
+  const batchesData = {
+    vocab: [
+      { en: "Resilient", ar: "قادر على التعافي / صلب" },
+      { en: "Meticulous", ar: "دقيق للغاية / مهتم بالتفاصيل" },
+      { en: "Pragmatic", ar: "عملي / واقعي" },
+      { en: "Ambiguous", ar: "غامض / غير واضح" },
+      { en: "Innovative", ar: "مبتكر / إبداعي" },
+      { en: "Eloquent", ar: "فصيح / بليغ في التعبير" },
+      { en: "Comprehensive", ar: "شامل / متكامل" },
+      { en: "Autonomous", ar: "مستقل / ذاتي" },
+      { en: "Significantly", ar: "بشكل كبير / ملحوظ" },
+      { en: "Acknowledge", ar: "يقر بـ / يعترف بـ" }
+    ],
+    idioms: [
+      { en: "Break a leg", ar: "تمنيات بالتوفيق (خاصة قبل المسرح أو العروض)" },
+      { en: "Bite the bullet", ar: "يتحمل الصعاب بشجاعة" },
+      { en: "Piece of cake", ar: "شيء سهل للغاية" },
+      { en: "Under the weather", ar: "متعب قليلاً / مريض" },
+      { en: "Hit the sack", ar: "يذهب للنوم" },
+      { en: "Call it a day", ar: "ينهي العمل لليوم" },
+      { en: "Cost an arm and a leg", ar: "باهظ الثمن جداً" },
+      { en: "The ball is in your court", ar: "القرار بيدك الآن" },
+      { en: "Spill the beans", ar: "يبوح بالسر" },
+      { en: "Once in a blue moon", ar: "نادراً جداً" }
+    ],
+    tenses: [
+      { en: "Present Simple: I study English daily.", ar: "المضارع البسيط: للحقائق والعادات اليومية." },
+      { en: "Present Continuous: I am learning now.", ar: "المضارع المستمر: حدث يحدث الآن ويستمر." },
+      { en: "Past Simple: I traveled yesterday.", ar: "الماضي البسيط: حدث وقع وانتهى في الماضي." },
+      { en: "Past Continuous: I was reading at 8 PM.", ar: "الماضي المستمر: حدث كان مستمراً في وقت معين بالماضي." },
+      { en: "Future Simple: I will pass the exam.", ar: "المستقبل البسيط: قرار أو تنبؤ للمستقبل." },
+      { en: "Present Perfect: I have visited London.", ar: "المضارع التام: حدث له أثر أو تم مؤخراً دون تحديد وقت." },
+      { en: "Present Perfect Cont: I have been studying.", ar: "المضارع التام المستمر: حدث بدأ في الماضي وما زال مستمراً." },
+      { en: "Past Perfect: I had left before he came.", ar: "الماضي التام: حدث وقع قبل حدث آخر في الماضي." },
+      { en: "Future Continuous: I will be working.", ar: "المستقبل المستمر: حدث سيكون مستمراً في وقت محدد بالمستقبل." },
+      { en: "Future Perfect: I will have finished by 5.", ar: "المستقبل التام: حدث سيكتمل قبل وقت محدد في المستقبل." }
+    ]
+  };
 
-  function addIdiom() {
-    const text = document.getElementById('idiomText').value;
-    const meaning = document.getElementById('idiomMeaning').value;
-    if (!text || !meaning) return;
-    idiomsDB.unshift({ text, meaning });
-    document.getElementById('idiomText').value = '';
-    document.getElementById('idiomMeaning').value = '';
-    renderIdiomBox();
-  }
-  function renderIdiomBox() {
-    const box = document.getElementById('idiomSavedList');
-    box.innerHTML = '';
-    idiomsDB.forEach(item => {
-      box.innerHTML += `<div class="item-card"><span style="color:var(--accent-blue); font-weight:bold;">${item.text}</span><span>${item.meaning}</span></div>`;
-    });
-  }
-
-  function addTense() {
-    const tense = document.getElementById('tenseSelect').value;
-    const ex = document.getElementById('tenseExample').value;
-    if (!ex) return;
-    tensesDB.unshift({ tense, ex });
-    document.getElementById('tenseExample').value = '';
-    renderTenseBox();
-  }
-  function renderTenseBox() {
-    const box = document.getElementById('tenseSavedList');
-    box.innerHTML = '';
-    tensesDB.forEach(item => {
-      box.innerHTML += `<div class="item-card" style="display:block;"><span style="color:var(--accent-blue); font-weight:bold; font-size:8.5pt;">${item.tense}</span><div style="direction:ltr; text-align:left; color:#334155; margin-top:2px;">${item.ex}</div></div>`;
-    });
-  }
-
-  function checkAns(btn, isCorrect) {
-    btn.style.background = isCorrect ? '#16a34a' : '#dc2626';
-    btn.style.color = '#fff';
-  }
-
-  function startVocabPractice() {
-    const area = document.getElementById('vocabPracticeArea');
-    area.innerHTML = '';
-    if (vocabDB.length === 0) { 
-      area.innerHTML = '<p style="color:var(--accent-yellow); font-size:8.5pt; margin-top:6px;">أضف كلمات أولاً لتظهر في التمارين!</p>'; 
-      return; 
-    }
-    const q = vocabDB[0];
-    let wrongOptions = ['تفاح 🍎', 'سيارة 🚗', 'قلم 🖊️'].filter(o => !o.includes(q.meaning));
-    let choices = [q.meaning, wrongOptions[0], wrongOptions[1], wrongOptions[2]].sort(() => Math.random() - 0.5);
-
-    area.innerHTML = `
-      <div class="item-card" style="display:block; margin-top:8px;">
-        <div style="font-weight:bold; text-align:center; font-size:10pt; margin-bottom:6px;">${q.word}</div>
-        <div class="grid-2x2">
-          <button class="opt-btn" onclick="checkAns(this, ${choices[0] === q.meaning})">${choices[0]}</button>
-          <button class="opt-btn" onclick="checkAns(this, ${choices[1] === q.meaning})">${choices[1]}</button>
-          <button class="opt-btn" onclick="checkAns(this, ${choices[2] === q.meaning})">${choices[2]}</button>
-          <button class="opt-btn" onclick="checkAns(this, ${choices[3] === q.meaning})">${choices[3]}</button>
+  function loadBatch(type) {
+    const listEl = document.getElementById(type + '10List');
+    listEl.innerHTML = '';
+    batchesData[type].forEach((item, index) => {
+      listEl.innerHTML += `
+        <div class="item-card">
+          <div style="font-weight:bold; color:var(--accent-blue);">${index + 1}. ${item.en}</div>
+          <div style="color:var(--text-secondary); margin-top:2px;">${item.ar}</div>
         </div>
-      </div>
-    `;
+      `;
+    });
   }
 
+  // Stories Data
   const storiesData = {
     'A1': { source: "OXFORD BASIC READER", title: 'Level A1: The First Step', en: 'Tom wakes up early in the morning. He drinks a cup of coffee and opens his laptop. He wants to learn new English words every single day to achieve his goals.', ar: 'يستيقظ توم مبكراً في الصباح. يشرب فنجان قهوة ويفتح حاسوبه. يريد تعلم كلمات إنجليزية جديدة كل يوم لتحقيق أهدافه.' },
     'A2': { source: "OXFORD STEP-BY-STEP", title: 'Level A2: A Busy Week Ahead', en: 'Sarah has a very busy week ahead. She is planning to travel to London for a short conference. She booked her flight tickets and packed her luggage carefully.', ar: 'لدى سارة أسبوع مزدحم للغاية قادم. تخطط للسفر إلى لندن لحضور مؤتمر قصير. لقد حجزت تذاكر الطيران ووضعت أمتعتها بعناية.' },
@@ -488,11 +452,11 @@
   function showStoryQuiz() {
     const box = document.getElementById('storyQuizBox');
     box.innerHTML = `
-      <div style="background:#ffffff; border:1px solid var(--border); border-radius:12px; padding:12px;">
-        <p style="margin:0 0 8px 0; font-size:9pt; color:var(--accent-blue); font-weight:bold;">اختبار فهم القراءة (Reading Comprehension):</p>
+      <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:12px; padding:12px;">
+        <p style="margin:0 0 8px 0; font-size:9pt; color:var(--accent-blue); font-weight:bold;">اختبار فهم القراءة:</p>
         <p style="margin:0 0 8px 0; font-size:8.5pt;">هل استوعبت المحتوى والمعنى العام للنص؟</p>
-        <button class="opt-btn" style="width:48%; display:inline-block;" onclick="alert('إجابة موفقة ورائعة يا عبدالرحمن! 🎯')">نعم، فهمته تماماً 👍</button>
-        <button class="opt-btn" style="width:48%; display:inline-block;" onclick="alert('حسناً، أعد قراءة النص بتركيز أكثر 💡')">أحتاج لإعادة القراءة 📖</button>
+        <button class="opt-btn" onclick="alert('إجابة موفقة ورائعة يا عبدالرحمن! 🎯')">نعم، فهمته تماماً 👍</button>
+        <button class="opt-btn" onclick="alert('حسناً، أعد قراءة النص بتركيز أكثر 💡')">أحتاج لإعادة القراءة 📖</button>
       </div>
     `;
   }
