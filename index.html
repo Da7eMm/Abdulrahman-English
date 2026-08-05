@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My English Journey</title>
+<title>My English Journey - Advanced & Multi-Chapter</title>
 <style>
   :root[data-theme="light"] {
     --bg-color: #f8fafc;
@@ -13,6 +13,8 @@
     --accent-blue: #0284c7;
     --accent-cyan: #0ea5e9;
     --accent-yellow: #d97706;
+    --accent-green: #16a34a;
+    --accent-red: #dc2626;
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --shadow: 0 10px 25px rgba(0,0,0,0.05);
@@ -26,6 +28,8 @@
     --accent-blue: #38bdf8;
     --accent-cyan: #22d3ee;
     --accent-yellow: #fbbf24;
+    --accent-green: #4ade80;
+    --accent-red: #f87171;
     --text-primary: #ffffff;
     --text-secondary: #94a3b8;
     --shadow: 0 10px 30px rgba(0,0,0,0.4);
@@ -41,7 +45,7 @@
     transition: background 0.3s ease, color 0.3s ease;
   }
 
-  .container { max-width: 950px; margin: 0 auto; }
+  .container { max-width: 980px; margin: 0 auto; }
 
   .hero-header {
     background: var(--card-bg);
@@ -115,7 +119,7 @@
 
   .section-card {
     flex: 0 0 88%;
-    max-width: 440px;
+    max-width: 450px;
     scroll-snap-align: center;
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -123,10 +127,9 @@
     padding: 22px;
     box-sizing: border-box;
     box-shadow: var(--shadow);
-    transition: background 0.3s ease, border 0.3s ease;
   }
 
-  @media (min-width: 768px) { .section-card { flex: 0 0 440px; } }
+  @media (min-width: 768px) { .section-card { flex: 0 0 460px; } }
 
   .section-title {
     font-size: 12pt;
@@ -137,7 +140,7 @@
 
   .learning-tabs {
     display: flex;
-    gap: 5px;
+    gap: 4px;
     margin-bottom: 14px;
     background: var(--card-inner);
     padding: 4px;
@@ -150,7 +153,7 @@
     padding: 8px 2px;
     border-radius: 10px;
     font-weight: 700;
-    font-size: 8.5pt;
+    font-size: 8pt;
     cursor: pointer;
     color: var(--text-secondary);
     text-align: center;
@@ -164,15 +167,29 @@
   .learning-panel { display: none; }
   .learning-panel.active { display: block; }
 
+  .form-group { margin-bottom: 10px; }
+
+  input, select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text-primary);
+    box-sizing: border-box;
+    font-size: 9.5pt;
+    outline: none;
+  }
+
   .btn {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     border: none;
     border-radius: 12px;
     font-weight: 800;
-    font-size: 9.5pt;
+    font-size: 9pt;
     cursor: pointer;
-    margin-top: 6px;
+    margin-top: 4px;
   }
   .btn:active { opacity: 0.8; }
 
@@ -184,7 +201,7 @@
     background: var(--card-inner);
     border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 12px;
+    padding: 10px;
     margin-top: 10px;
     max-height: 220px;
     overflow-y: auto;
@@ -194,23 +211,27 @@
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 10px;
+    padding: 8px 10px;
     margin-bottom: 6px;
-    font-size: 9pt;
+    font-size: 8.5pt;
   }
 
+  .badge-easy { color: var(--accent-green); font-weight: bold; font-size: 7.5pt; }
+  .badge-hard { color: var(--accent-red); font-weight: bold; font-size: 7.5pt; }
+
+  /* Stories Styling */
   .story-levels {
     display: flex;
     gap: 5px;
     justify-content: center;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
   }
   .level-tab {
     background: var(--card-inner);
     border: 1px solid var(--border);
     color: var(--text-secondary);
-    padding: 6px 10px;
+    padding: 6px 12px;
     border-radius: 10px;
     cursor: pointer;
     font-weight: 700;
@@ -222,28 +243,48 @@
     border-color: var(--accent-blue);
   }
 
+  .chapter-tabs {
+    display: flex;
+    gap: 5px;
+    margin: 8px 0;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .chapter-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 8pt;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .chapter-btn.active {
+    background: var(--accent-cyan);
+    color: #fff;
+    border-color: var(--accent-cyan);
+  }
+
   .story-reader-box {
     background: var(--card-inner);
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 14px;
-    margin-top: 10px;
-    max-height: 280px;
+    margin-top: 6px;
+    max-height: 290px;
     overflow-y: auto;
   }
 
-  .opt-btn {
-    background: var(--card-inner);
-    border: 1px solid var(--border);
-    color: var(--text-primary);
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 8.5pt;
-    text-align: center;
-    width: 48%;
-    display: inline-block;
+  .reference-citation {
+    font-size: 7.5pt;
+    color: var(--text-secondary);
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent-blue);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
   }
 
   .motivation-bar {
@@ -268,92 +309,120 @@
   <div class="hero-header">
     <div class="hero-title">My English Journey ⚡</div>
     <div class="top-controls">
-      <button class="theme-toggle-btn" onclick="toggleTheme()">🌓 وضع السمة</button>
+      <button class="theme-toggle-btn" onclick="toggleTheme()">🌓 السمة</button>
       <div class="about-me-badge">👤 Abdulrahman (C1/C2)</div>
     </div>
   </div>
 
-  <div class="swipe-hint">👈 اسحب أفقياً لتتصفح (قائمة التعلم الاحترافي & مكتبة القصص العالمية) 👉</div>
+  <div class="swipe-hint">👈 اسحب أفقياً لتتصفح (مركز التعلم والمكتبة & قصص طويلة وفصول متعددة) 👉</div>
 
   <div class="slider-container">
     
-    <!-- 1. Learn 10 Section (Vocab, Idioms, Tenses) -->
+    <!-- 1. Learning & Custom Library Section -->
     <div class="section-card">
-      <div class="section-title">🚀 مركز التعلم الذكي (تعلم 10)</div>
+      <div class="section-title">🚀 مركز التعلم التفاعلي (مزيج سهل وصعب)</div>
       
       <div class="learning-tabs">
-        <button class="ltab-btn active" onclick="switchLearnTab('vocab', this)">تعلم 10 كلمات 📚</button>
-        <button class="ltab-btn" onclick="switchLearnTab('idioms', this)">تعلم 10 Idioms 💡</button>
-        <button class="ltab-btn" onclick="switchLearnTab('tenses', this)">تعلم 10 أزمنة ⏳</button>
+        <button class="ltab-btn active" onclick="switchLearnTab('vocab', this)">الكلمات 📚</button>
+        <button class="ltab-btn" onclick="switchLearnTab('idioms', this)">Idioms 💡</button>
+        <button class="ltab-btn" onclick="switchLearnTab('tenses', this)">الأزمنة ⏳</button>
       </div>
 
-      <!-- Learn Vocab Panel -->
+      <!-- Vocab Panel -->
       <div id="learn-panel-vocab" class="learning-panel active">
-        <p style="font-size: 8.5pt; color: var(--text-secondary); margin-top:0;">اضغط للتعرف على باقة جديدة من الكلمات المتقدمة:</p>
-        <button class="btn btn-blue" onclick="loadBatch('vocab')">عرض 10 كلمات جديدة 🗂️</button>
-        <div class="content-list-box" id="vocab10List">
+        <div style="font-size:8pt; color:var(--accent-blue); font-weight:bold; margin-bottom:6px;">✨ 10 كلمات متنوعة المستويات (سهلة وصعبة):</div>
+        <button class="btn btn-blue" onclick="loadBatch('vocab')">عرض كلمات متنوعة (سهل + صعب) 🗂️</button>
+        
+        <div class="form-group" style="margin-top:10px;"><input type="text" id="customVocabWord" placeholder="أدخل كلمة جديدة (English)"></div>
+        <div class="form-group"><input type="text" id="customVocabMeaning" placeholder="المعنى بالعربي"></div>
+        <button class="btn btn-cyan" onclick="addCustomVocab()">إضافة إلى مكتبتي الخاصة 💾</button>
+
+        <div class="content-list-box" id="vocabDisplayList">
           <span style="color:var(--text-secondary); font-size:8.5pt;">اضغط الزر بالأعلى لاكتشاف الكلمات...</span>
         </div>
       </div>
 
-      <!-- Learn Idioms Panel -->
+      <!-- Idioms Panel -->
       <div id="learn-panel-idioms" class="learning-panel">
-        <p style="font-size: 8.5pt; color: var(--text-secondary); margin-top:0;">اضغط لاكتشاف أشهر التعبيرات الإنجليزية (Idioms):</p>
-        <button class="btn btn-cyan" onclick="loadBatch('idioms')">عرض 10 Idioms جديدة 💡</button>
-        <div class="content-list-box" id="idioms10List">
+        <div style="font-size:8pt; color:var(--accent-cyan); font-weight:bold; margin-bottom:6px;">✨ مصطلحات شائعة ومتقدمة (سهل + صعب):</div>
+        <button class="btn btn-cyan" onclick="loadBatch('idioms')">عرض Idioms متنوعة 💡</button>
+
+        <div class="form-group" style="margin-top:10px;"><input type="text" id="customIdiomText" placeholder="أدخل مصطلحاً (English Idiom)"></div>
+        <div class="form-group"><input type="text" id="customIdiomMeaning" placeholder="المعنى والمغزى بالعربي"></div>
+        <button class="btn btn-blue" onclick="addCustomIdiom()">إضافة إلى مكتبتي الخاصة 💾</button>
+
+        <div class="content-list-box" id="idiomsDisplayList">
           <span style="color:var(--text-secondary); font-size:8.5pt;">اضغط الزر بالأعلى لاكتشاف المصطلحات...</span>
         </div>
       </div>
 
-      <!-- Learn Tenses Panel -->
+      <!-- Tenses Panel -->
       <div id="learn-panel-tenses" class="learning-panel">
-        <p style="font-size: 8.5pt; color: var(--text-secondary); margin-top:0;">استعرض أهم قواعد الأزمنة وتراكيبها الدقيقة:</p>
-        <button class="btn btn-yellow" onclick="loadBatch('tenses')">عرض 10 قواعد وأزمنة ⏳</button>
-        <div class="content-list-box" id="tenses10List">
+        <div style="font-size:8pt; color:var(--accent-yellow); font-weight:bold; margin-bottom:6px;">✨ قواعد وأزمنة أساسية ومتقدمة:</div>
+        <button class="btn btn-yellow" onclick="loadBatch('tenses')">عرض باقة القواعد والأزمنة ⏳</button>
+
+        <div class="form-group" style="margin-top:10px;">
+          <select id="customTenseName">
+            <option>Present Simple (المضارع البسيط)</option>
+            <option>Present Continuous (المضارع المستمر)</option>
+            <option>Past Simple (الماضي البسيط)</option>
+            <option>Future Simple (المستقبل البسيط)</option>
+            <option>Present Perfect (المضارع التام)</option>
+            <option>Conditionals (الجمل الشرطية)</option>
+          </select>
+        </div>
+        <div class="form-group"><input type="text" id="customTenseExample" placeholder="اكتب مثالاً أو ملاحظة قاعدية"></div>
+        <button class="btn btn-blue" onclick="addCustomTense()">إضافة إلى مكتبتي الخاصة 💾</button>
+
+        <div class="content-list-box" id="tensesDisplayList">
           <span style="color:var(--text-secondary); font-size:8.5pt;">اضغط الزر بالأعلى لاكتشاف الأزمنة...</span>
         </div>
       </div>
 
     </div>
 
-    <!-- 2. Oxford & BBC Stories Section -->
+    <!-- 2. Oxford & BBC Multi-Chapter Stories Section -->
     <div class="section-card" style="flex: 0 0 92%; max-width: 480px;">
-      <div class="section-title">📰📖 مكتبة القصص (Oxford & BBC Style)</div>
-      <p style="font-size: 8.5pt; color: var(--text-secondary); margin-top:0;">اختر المستوى لقراءة قصة مع الاستماع الصوتي واختبار الفهم:</p>
+      <div class="section-title">📚 مكتبة القصص الطويلة (Oxford & BBC)</div>
+      <p style="font-size: 8.5pt; color: var(--text-secondary); margin-top:0;">اختر القصة والمستوى لتصفح الفصول الكاملة والاستماع الصوتي:</p>
       
       <div class="story-levels">
-        <button class="level-tab active" onclick="loadStory('A1')">A1</button>
-        <button class="level-tab" onclick="loadStory('A2')">A2</button>
-        <button class="level-tab" onclick="loadStory('B1')">B1</button>
-        <button class="level-tab" onclick="loadStory('B2')">B2</button>
-        <button class="level-tab" onclick="loadStory('C1')">C1</button>
-        <button class="level-tab" onclick="loadStory('C2')">C2</button>
+        <button class="level-tab active" onclick="loadStory('S1')">القصة 1: لغز بلاكوود (B1)</button>
+        <button class="level-tab" onclick="loadStory('S2')">القصة 2: الابتكار (B2/C1)</button>
+        <button class="level-tab" onclick="loadStory('S3')">القصة 3: آفاق الكم (C1/C2)</button>
+      </div>
+
+      <div class="reference-citation" id="storyCitation">
+        📖 Reference: Oxford Bookworms Library (Graded Readers Series)
+      </div>
+
+      <h4 id="storyMainTitle" style="margin:4px 0; color:var(--accent-blue); font-size:10.5pt;">The Mystery of Blackwood Manor</h4>
+
+      <!-- Chapter Tabs -->
+      <div class="chapter-tabs" id="chapterTabsContainer">
+        <!-- Generated Dynamically -->
       </div>
 
       <div class="story-reader-box" id="storyReaderContainer">
-        <div id="storySourceBadge" style="font-size:7.5pt; font-weight:800; color:var(--accent-blue); margin-bottom:4px;">SOURCE: OXFORD LEARNER'S READER</div>
-        <h4 id="storyHeader" style="margin:0 0 6px 0; color:var(--text-primary); font-size:10pt;">Level A1: The Morning Routine</h4>
-        <p id="storyTextEn" style="direction:ltr; text-align:left; font-size:9pt; line-height:1.5; color:var(--text-primary); margin-bottom:8px;">
-          Tom wakes up early in the morning. He drinks a cup of coffee and opens his laptop. He wants to learn new English words every single day to achieve his goals.
+        <h5 id="chapterTitleHeader" style="margin:0 0 6px 0; color:var(--text-primary); font-size:9.5pt;">Chapter 1: The Arrival</h5>
+        <p id="storyTextEn" style="direction:ltr; text-align:left; font-size:9pt; line-height:1.6; color:var(--text-primary); margin-bottom:8px;">
+          Arthur arrived at the gates of Blackwood Manor late at night. The rain was heavy, and the wind blew through the old trees. He carried a small suitcase and a letter from his old friend.
         </p>
         <p id="storyTextAr" style="font-size:8.5pt; color:var(--text-secondary); border-top:1px solid var(--border); padding-top:6px; margin:0 0 10px 0;">
-          [الترجمة]: يستيقظ توم مبكراً في الصباح. يشرب فنجان قهوة ويفتح حاسوبه. يريد تعلم كلمات إنجليزية جديدة كل يوم لتحقيق أهدافه.
+          [الترجمة]: وصل آرثر إلى بوابات قصر بلاكوود في وقت متأخر من الليل. كانت الأمطار غزيرة، والرياح تعصف بين الأشجار القديمة. كان يحمل حقيبة صغيرة ورسالة من صديقه القديم.
         </p>
-        <button class="btn btn-cyan" onclick="speakStoryText()">استمع للنطق الصوتي 🔊</button>
-        <button class="btn btn-yellow" onclick="showStoryQuiz()" style="margin-top:6px;">اختبر فهمك للقراءة 📝</button>
+        <button class="btn btn-cyan" onclick="speakStoryText()">استمع لنطق هذا الفصل 🔊</button>
       </div>
-      <div id="storyQuizBox" style="margin-top:8px;"></div>
     </div>
 
   </div>
 </div>
 
 <div class="motivation-bar" id="motivationQuote">
-  🔥 "Every small step counts towards C1 & C2 mastery, Abdulrahman!"
+  🔥 "Every chapter you read builds ultimate vocabulary mastery, Abdulrahman!"
 </div>
 
 <script>
-  // Theme Toggle Functionality
   function toggleTheme() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
@@ -368,78 +437,170 @@
     document.getElementById('learn-panel-' + tabName).classList.add('active');
   }
 
-  // 10 Items Batches Data
+  // Mixed Vocab & Idioms Batches (Easy 🟢 + Hard 🔴)
   const batchesData = {
     vocab: [
-      { en: "Resilient", ar: "قادر على التعافي / صلب" },
-      { en: "Meticulous", ar: "دقيق للغاية / مهتم بالتفاصيل" },
-      { en: "Pragmatic", ar: "عملي / واقعي" },
-      { en: "Ambiguous", ar: "غامض / غير واضح" },
-      { en: "Innovative", ar: "مبتكر / إبداعي" },
-      { en: "Eloquent", ar: "فصيح / بليغ في التعبير" },
-      { en: "Comprehensive", ar: "شامل / متكامل" },
-      { en: "Autonomous", ar: "مستقل / ذاتي" },
-      { en: "Significantly", ar: "بشكل كبير / ملحوظ" },
-      { en: "Acknowledge", ar: "يقر بـ / يعترف بـ" }
+      { en: "Simple", ar: "بسيط / غير معقد", level: "easy" },
+      { en: "Journey", ar: "رحلة / مسيرة", level: "easy" },
+      { en: "Improve", ar: "تحسين / تطوير", level: "easy" },
+      { en: "Goal", ar: "هدف / غاية", level: "easy" },
+      { en: "Habit", ar: "عادة يومية", level: "easy" },
+      { en: "Meticulous", ar: "دقيق للغاية وملاحظ للتفاصيل", level: "hard" },
+      { en: "Resilient", ar: "قادر على التعافي والتحمل بسرعة", level: "hard" },
+      { en: "Ubiquitous", ar: "منتشر في كل مكان / واسع الوجود", level: "hard" },
+      { en: "Ephemeral", ar: "عابر / قصير الأجل جدًا", level: "hard" },
+      { en: "Pragmatic", ar: "عملي / واقعي في التفكير", level: "hard" }
     ],
     idioms: [
-      { en: "Break a leg", ar: "تمنيات بالتوفيق (خاصة قبل المسرح أو العروض)" },
-      { en: "Bite the bullet", ar: "يتحمل الصعاب بشجاعة" },
-      { en: "Piece of cake", ar: "شيء سهل للغاية" },
-      { en: "Under the weather", ar: "متعب قليلاً / مريض" },
-      { en: "Hit the sack", ar: "يذهب للنوم" },
-      { en: "Call it a day", ar: "ينهي العمل لليوم" },
-      { en: "Cost an arm and a leg", ar: "باهظ الثمن جداً" },
-      { en: "The ball is in your court", ar: "القرار بيدك الآن" },
-      { en: "Spill the beans", ar: "يبوح بالسر" },
-      { en: "Once in a blue moon", ar: "نادراً جداً" }
+      { en: "Break a leg", ar: "تمنيات بالتوفيق", level: "easy" },
+      { en: "Piece of cake", ar: "شيء سهل جداً", level: "easy" },
+      { en: "Under the weather", ar: "شعور بالإرهاق أو المرض الخفيف", level: "easy" },
+      { en: "Call it a day", ar: "إنهاء العمل لهذا اليوم", level: "easy" },
+      { en: "Bite the bullet", ar: "مواجهة الصعاب بشجاعة والإقدام عليها", level: "hard" },
+      { en: "Burn the midnight oil", ar: "السهر والدراسة/العمل حتى وقت متأخر", level: "hard" },
+      { en: "Steal someone's thunder", ar: "سحب الأضواء أو سرقة فكرة شخص آخر", level: "hard" },
+      { en: "Beat around the bush", ar: "التلميح والمماطلة دون الدخول في صلب الموضوع", level: "hard" }
     ],
     tenses: [
-      { en: "Present Simple: I study English daily.", ar: "المضارع البسيط: للحقائق والعادات اليومية." },
-      { en: "Present Continuous: I am learning now.", ar: "المضارع المستمر: حدث يحدث الآن ويستمر." },
-      { en: "Past Simple: I traveled yesterday.", ar: "الماضي البسيط: حدث وقع وانتهى في الماضي." },
-      { en: "Past Continuous: I was reading at 8 PM.", ar: "الماضي المستمر: حدث كان مستمراً في وقت معين بالماضي." },
-      { en: "Future Simple: I will pass the exam.", ar: "المستقبل البسيط: قرار أو تنبؤ للمستقبل." },
-      { en: "Present Perfect: I have visited London.", ar: "المضارع التام: حدث له أثر أو تم مؤخراً دون تحديد وقت." },
-      { en: "Present Perfect Cont: I have been studying.", ar: "المضارع التام المستمر: حدث بدأ في الماضي وما زال مستمراً." },
-      { en: "Past Perfect: I had left before he came.", ar: "الماضي التام: حدث وقع قبل حدث آخر في الماضي." },
-      { en: "Future Continuous: I will be working.", ar: "المستقبل المستمر: حدث سيكون مستمراً في وقت محدد بالمستقبل." },
-      { en: "Future Perfect: I will have finished by 5.", ar: "المستقبل التام: حدث سيكتمل قبل وقت محدد في المستقبل." }
+      { en: "Present Simple: I study daily.", ar: "المضارع البسيط - عادات وحقائق ثابته (سهل 🟢)" },
+      { en: "Past Simple: I traveled yesterday.", ar: "الماضي البسيط - أحداث اكتملت بالماضي (سهل 🟢)" },
+      { en: "Present Perfect: I have completed C1 prep.", ar: "المضارع التام - إنجاز له أثر في الحاضر (متوسط 🟡)" },
+      { en: "Past Perfect: I had left before the meeting started.", ar: "الماضي التام - حدث وقع قبل حدث آخر في الماضي (صعب 🔴)" },
+      { en: "Future Perfect Continuous: I will have been working for 5 hours.", ar: "المستقبل التام المستمر - استمرارية الحدث حتى نقطة مستقبلية (صعب جداً 🔴)" }
     ]
   };
 
+  let myCustomVocab = [];
+  let myCustomIdioms = [];
+  let myCustomTenses = [];
+
   function loadBatch(type) {
-    const listEl = document.getElementById(type + '10List');
+    const listEl = document.getElementById(type + 'DisplayList');
     listEl.innerHTML = '';
     batchesData[type].forEach((item, index) => {
+      let badgeHtml = item.level === 'easy' 
+        ? '<span class="badge-easy">[مستوى سهل 🟢]</span>' 
+        : (item.level === 'hard' ? '<span class="badge-hard">[مستوى صعب 🔴]</span>' : '');
+      
       listEl.innerHTML += `
         <div class="item-card">
-          <div style="font-weight:bold; color:var(--accent-blue);">${index + 1}. ${item.en}</div>
+          <div style="font-weight:bold; color:var(--accent-blue);">${index + 1}. ${item.en} ${badgeHtml}</div>
           <div style="color:var(--text-secondary); margin-top:2px;">${item.ar}</div>
         </div>
       `;
     });
   }
 
-  // Stories Data
-  const storiesData = {
-    'A1': { source: "OXFORD BASIC READER", title: 'Level A1: The First Step', en: 'Tom wakes up early in the morning. He drinks a cup of coffee and opens his laptop. He wants to learn new English words every single day to achieve his goals.', ar: 'يستيقظ توم مبكراً في الصباح. يشرب فنجان قهوة ويفتح حاسوبه. يريد تعلم كلمات إنجليزية جديدة كل يوم لتحقيق أهدافه.' },
-    'A2': { source: "OXFORD STEP-BY-STEP", title: 'Level A2: A Busy Week Ahead', en: 'Sarah has a very busy week ahead. She is planning to travel to London for a short conference. She booked her flight tickets and packed her luggage carefully.', ar: 'لدى سارة أسبوع مزدحم للغاية قادم. تخطط للسفر إلى لندن لحضور مؤتمر قصير. لقد حجزت تذاكر الطيران ووضعت أمتعتها بعناية.' },
-    'B1': { source: "BBC LEARNING ENGLISH", title: 'Level B1: Adapting to Remote Work', en: 'Many companies are shifting towards flexible work policies. Employees find it challenging to maintain a healthy work-life balance while working entirely from home.', ar: 'تتحول العديد من الشركات نحو سياسات العمل المرنة. يجد الموظفون صعوبة في الحفاظ على التوازن الصحي بين العمل والحياة أثناء العمل من المنزل بالكامل.' },
-    'B2': { source: "BBC NEWS FEATURES", title: 'Level B2: The Psychology of Habits', en: 'Building small daily habits can completely transform your life over time. Consistency outperforms intensity when you are aiming for advanced language fluency like C1 and C2 levels.', ar: 'بناء عادات يومية صغيرة يمكن أن يغير حياتك تماماً بمرور الوقت. الاستمرارية تتفوق على الكثافة عندما تستهدف طلاقة لغوية متقدمة مثل مستويات C1 وC2.' },
-    'C1': { source: "BBC SCIENCE & ENVIRONMENT", title: 'Level C1: Quantum Horizons', en: 'Advanced theoretical frameworks often challenge our intuitive understanding of the physical universe. Quantum mechanics demonstrates that particles can exist in superposition states until observed.', ar: 'الأطر النظرية المتقدمة غالباً ما تتحدى فهمنا البديهي للكون الفيزيائي. ميكانيكا الكم تثبت أن الجسيمات يمكن أن تتواجد في حالات تراكب حتى تتم ملاحظتها.' },
-    'C2': { source: "OXFORD ADVANCED LITERARY", title: 'Level C2: The Art of Nuance', en: 'Mastering the absolute apex of a language requires an intricate appreciation of sociolinguistic subtleties, rhetorical nuances, and deep idiomatic structures that evade standard textbooks.', ar: 'إتقان القمة المطلقة للغة يتطلب تقديراً معقداً للفروق الدقيقة في علم الاجتماع اللغوي، والفروق البلاغية، والهياكل الاصطلاحية العميقة التي تتجنبها الكتب المدرسية العادية.' }
+  function addCustomVocab() {
+    const word = document.getElementById('customVocabWord').value;
+    const meaning = document.getElementById('customVocabMeaning').value;
+    if (!word || !meaning) return;
+    myCustomVocab.unshift({ en: word, ar: meaning });
+    document.getElementById('customVocabWord').value = '';
+    document.getElementById('customVocabMeaning').value = '';
+    renderCustomList('vocab');
+  }
+
+  function addCustomIdiom() {
+    const text = document.getElementById('customIdiomText').value;
+    const meaning = document.getElementById('customIdiomMeaning').value;
+    if (!text || !meaning) return;
+    myCustomIdioms.unshift({ en: text, ar: meaning });
+    document.getElementById('customIdiomText').value = '';
+    document.getElementById('customIdiomMeaning').value = '';
+    renderCustomList('idioms');
+  }
+
+  function addCustomTense() {
+    const tenseName = document.getElementById('customTenseName').value;
+    const ex = document.getElementById('customTenseExample').value;
+    if (!ex) return;
+    myCustomTenses.unshift({ en: tenseName, ar: ex });
+    document.getElementById('customTenseExample').value = '';
+    renderCustomList('tenses');
+  }
+
+  function renderCustomList(type) {
+    const listEl = document.getElementById(type + 'DisplayList');
+    listEl.innerHTML = '<div style="font-size:8pt; color:var(--accent-yellow); font-weight:bold; margin-bottom:4px;">📌 مكتبتي المحفوظة:</div>';
+    let data = type === 'vocab' ? myCustomVocab : (type === 'idioms' ? myCustomIdioms : myCustomTenses);
+    data.forEach((item, index) => {
+      listEl.innerHTML += `
+        <div class="item-card">
+          <div style="font-weight:bold; color:var(--accent-cyan);">${index + 1}. ${item.en}</div>
+          <div style="color:var(--text-secondary); margin-top:2px;">${item.ar}</div>
+        </div>
+      `;
+    });
+  }
+
+  // Multi-Chapter Stories with Authentic References
+  const multiChapterStories = {
+    'S1': {
+      source: "📖 Ref: Oxford Bookworms Library (Graded Reader Level 3)",
+      title: "The Mystery of Blackwood Manor",
+      chapters: [
+        { title: "Chapter 1: The Arrival", en: "Arthur arrived at the gates of Blackwood Manor late at night. The rain was heavy, and the wind blew through the old trees. He carried a small suitcase and a letter from his old friend.", ar: "وصل آرثر إلى بوابات قصر بلاكوود في وقت متأخر من الليل. كانت الأمطار غزيرة، والرياح تعصف بين الأشجار القديمة. كان يحمل حقيبة صغيرة ورسالة من صديقه القديم." },
+        { title: "Chapter 2: The Hidden Key", en: "Inside the dusty library, Arthur found a brass key tucked inside an ancient encyclopedia. The key had a strange symbol engraved on its side, pointing toward the cellar below.", ar: "داخل المكتبة المتربة، وجد آرثر مفتاحًا نحاسيًا مخبأ داخل موسوعة قديمة. كان المفتاح يحمل رمزًا غريبًا محفورًا على جانبه، يشير إلى السرداب السفلي." },
+        { title: "Chapter 3: The Secret Room", en: "Descending the stone stairs, Arthur unlocked a heavy wooden door. Behind it lay a room filled with historic documents that revealed the forgotten truth of the manor.", ar: "نزولاً على الدرج الحجري، فتح آرثر بابًا خشبيًا ثقيلاً بالمفتاح. وخلفه كانت توجد غرفة مليئة بالوثائق التاريخية التي كشفت الحقيقة المنسية للقصر." }
+      ]
+    },
+    'S2': {
+      source: "📰 Ref: BBC World Service & BBC Learning English Features",
+      title: "The Echoes of Innovation",
+      chapters: [
+        { title: "Chapter 1: A New Era", en: "In the heart of modern technological hubs, engineers are exploring artificial intelligence to solve climate challenges. Renewable energy systems are becoming more efficient than ever.", ar: "في قلب المراكز التكنولوجية الحديثة، يستكشف المهندسون الذكاء الاصطناعي لحل تحديات المناخ. وتصبح أنظمة الطاقة المتجددة أكثر كفاءة من أي وقت مضى." },
+        { title: "Chapter 2: The Breakthrough", en: "A team of young researchers successfully designed a new solar cell capable of storing double the energy. This breakthrough captured international media attention worldwide.", ar: "نجح فريق من الباحثين الشباب في تصميم خلية شمسية جديدة قادرة على تخزين ضعف الطاقة. وحاز هذا الاختراق العلمي على اهتمام وسائل الإعلام الدولية حول العالم." },
+        { title: "Chapter 3: Global Impact", en: "Within months, cities across the world started adopting the technology, significantly reducing carbon emissions and creating sustainable urban environments.", ar: "في غضون أشهر، بدأت المدن حول العالم في تبني هذه التكنولوجيا، مما قلل بشكل كبير من انبعاثات الكربون وأنشأ بيئات حضرية مستدامة." }
+      ]
+    },
+    'S3': {
+      source: "🎓 Ref: Oxford University Press - Advanced Scientific Literacy",
+      title: "Quantum Horizons & The Mind",
+      chapters: [
+        { title: "Chapter 1: Theoretical Foundations", en: "Theoretical physics often challenges our fundamental perceptions of reality. Quantum superposition suggests that particles can exist in multiple states simultaneously until measured.", ar: "غالباً ما تتحدى الفيزياء النظرية تصرفاتنا وإدراكنا الأساسي للواقع. تراكب الكم يشير إلى أن الجسيمات يمكن أن تتواجد في حالات متعددة في نفس الوقت حتى يتم قياسها." },
+        { title: "Chapter 2: The Observer Paradox", en: "Scientists have debated the role of the observer for decades. Does consciousness itself influence the collapse of the wave function, or is it purely a mechanical measurement interaction?", ar: "تناظر العلماء حول دور الملاحظ لعقود. هل يؤثر الوعي ذاته في انهيار الدالة الموجية، أم أنه مجرد تفاعل قياس ميكانيكي؟" },
+        { title: "Chapter 3: Cosmic Synthesis", en: "Synthesizing quantum mechanics with general relativity remains the ultimate holy grail of modern physics, driving scientists toward a unified Theory of Everything.", ar: "يبقى الدمج بين ميكانيكا الكم والنسبية العامة الهدف الأسمى والغاية الكبرى للفيزياء الحديثة، مما يدفع العلماء نحو نظرية موحدة لكل شيء." }
+      ]
+    }
   };
 
-  function loadStory(lvl) {
-    document.querySelectorAll('.level-tab').forEach(t => t.classList.remove('active'));
+  let currentStoryKey = 'S1';
+  let currentChapterIdx = 0;
+
+  function loadStory(storyKey) {
+    document.querySelectorAll('.story-levels .level-tab').forEach(t => t.classList.remove('active'));
     event.target.classList.add('active');
-    const st = storiesData[lvl];
-    document.getElementById('storySourceBadge').innerText = 'SOURCE: ' + st.source;
-    document.getElementById('storyHeader').innerText = st.title;
-    document.getElementById('storyTextEn').innerText = st.en;
-    document.getElementById('storyTextAr').innerText = '[الترجمة]: ' + st.ar;
-    document.getElementById('storyQuizBox').innerHTML = '';
+    currentStoryKey = storyKey;
+    currentChapterIdx = 0;
+
+    const st = multiChapterStories[storyKey];
+    document.getElementById('storyCitation').innerText = st.source;
+    document.getElementById('storyMainTitle').innerText = st.title;
+
+    // Build Chapter Buttons
+    const chapContainer = document.getElementById('chapterTabsContainer');
+    chapContainer.innerHTML = '';
+    st.chapters.forEach((chap, idx) => {
+      let activeCls = idx === 0 ? 'active' : '';
+      chapContainer.innerHTML += `<button class="chapter-btn ${activeCls}" onclick="switchChapter(${idx}, this)">الفصل ${idx + 1}</button>`;
+    });
+
+    renderCurrentChapter();
+  }
+
+  function switchChapter(idx, btn) {
+    document.querySelectorAll('.chapter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentChapterIdx = idx;
+    renderCurrentChapter();
+  }
+
+  function renderCurrentChapter() {
+    const chap = multiChapterStories[currentStoryKey].chapters[currentChapterIdx];
+    document.getElementById('chapterTitleHeader').innerText = chap.title;
+    document.getElementById('storyTextEn').innerText = chap.en;
+    document.getElementById('storyTextAr').innerText = '[الترجمة]: ' + chap.ar;
   }
 
   function speakStoryText() {
@@ -449,17 +610,8 @@
     window.speechSynthesis.speak(utterance);
   }
 
-  function showStoryQuiz() {
-    const box = document.getElementById('storyQuizBox');
-    box.innerHTML = `
-      <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:12px; padding:12px;">
-        <p style="margin:0 0 8px 0; font-size:9pt; color:var(--accent-blue); font-weight:bold;">اختبار فهم القراءة:</p>
-        <p style="margin:0 0 8px 0; font-size:8.5pt;">هل استوعبت المحتوى والمعنى العام للنص؟</p>
-        <button class="opt-btn" onclick="alert('إجابة موفقة ورائعة يا عبدالرحمن! 🎯')">نعم، فهمته تماماً 👍</button>
-        <button class="opt-btn" onclick="alert('حسناً، أعد قراءة النص بتركيز أكثر 💡')">أحتاج لإعادة القراءة 📖</button>
-      </div>
-    `;
-  }
+  // Initialize chapter tabs on page load
+  loadStory('S1');
 </script>
 
 </body>
