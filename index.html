@@ -3,34 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My English Journey - Ultimate Edition</title>
+<title>iStoria English - Abdulrahman Journey</title>
 <style>
   :root[data-theme="light"] {
-    --bg-color: #f8fafc;
+    --bg-color: #f7f9fc;
     --card-bg: #ffffff;
     --card-inner: #f1f5f9;
     --border: #e2e8f0;
-    --accent-blue: #0284c7;
-    --accent-cyan: #0ea5e9;
-    --accent-yellow: #d97706;
-    --accent-green: #16a34a;
-    --accent-red: #dc2626;
+    --accent-purple: #7c3aed;
+    --accent-purple-light: #8b5cf6;
+    --accent-cyan: #06b6d4;
+    --accent-green: #10b981;
     --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --shadow: 0 10px 25px rgba(0,0,0,0.05);
+    --text-secondary: #64748b;
+    --shadow: 0 10px 25px rgba(124, 58, 237, 0.06);
   }
 
   :root[data-theme="dark"] {
-    --bg-color: #080f1e;
-    --card-bg: rgba(255, 255, 255, 0.06);
-    --card-inner: rgba(15, 23, 42, 0.7);
-    --border: rgba(255, 255, 255, 0.12);
-    --accent-blue: #38bdf8;
+    --bg-color: #0b0f19;
+    --card-bg: #131b2e;
+    --card-inner: #1e293b;
+    --border: rgba(255, 255, 255, 0.08);
+    --accent-purple: #a78bfa;
+    --accent-purple-light: #c4b5fd;
     --accent-cyan: #22d3ee;
-    --accent-yellow: #fbbf24;
-    --accent-green: #4ade80;
-    --accent-red: #f87171;
-    --text-primary: #ffffff;
+    --accent-green: #34d399;
+    --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --shadow: 0 10px 30px rgba(0,0,0,0.4);
   }
@@ -40,142 +38,201 @@
     background: var(--bg-color);
     color: var(--text-primary);
     margin: 0;
-    padding: 20px 15px 90px 15px;
+    padding: 15px 15px 90px 15px;
     direction: rtl;
     transition: background 0.3s ease, color 0.3s ease;
   }
 
-  .container { max-width: 1000px; margin: 0 auto; }
+  .container { max-width: 950px; margin: 0 auto; }
 
-  .hero-header {
+  /* iStoria Header Style */
+  .istoria-header {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 18px 20px;
+    margin-bottom: 15px;
     box-shadow: var(--shadow);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
   }
 
-  .hero-title {
-    font-size: 18pt;
-    font-weight: 800;
-    color: var(--accent-blue);
-    margin: 0;
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16pt;
+    font-weight: 900;
+    color: var(--accent-purple);
   }
 
-  .top-controls {
+  .user-pill {
+    background: var(--card-inner);
+    border: 1px solid var(--accent-purple);
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 8.5pt;
+    color: var(--accent-purple);
+    direction: ltr;
+    font-weight: 700;
+  }
+
+  .top-actions {
     display: flex;
     gap: 8px;
     align-items: center;
-    flex-wrap: wrap;
   }
 
-  .theme-toggle-btn {
+  .theme-btn {
     background: var(--card-inner);
     border: 1px solid var(--border);
     color: var(--text-primary);
-    padding: 8px 14px;
-    border-radius: 12px;
+    padding: 7px 12px;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: 700;
     font-size: 8.5pt;
   }
 
-  .about-me-badge {
-    background: var(--card-inner);
-    border: 1px solid var(--accent-cyan);
-    padding: 8px 14px;
-    border-radius: 12px;
-    font-size: 8.5pt;
-    color: var(--accent-cyan);
-    direction: ltr;
-    font-weight: 700;
+  /* Navigation Tabs (iStoria Style) */
+  .istoria-nav {
     display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .swipe-hint {
-    text-align: center;
-    color: var(--accent-yellow);
-    font-size: 9.5pt;
+    gap: 8px;
     margin-bottom: 15px;
-    font-weight: 700;
-  }
-
-  .slider-container {
-    display: flex;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
   }
 
-  .slider-container::-webkit-scrollbar { height: 6px; }
-  .slider-container::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 10px; }
-
-  .section-card {
-    flex: 0 0 90%;
-    max-width: 460px;
-    scroll-snap-align: center;
+  .nav-pill {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 24px;
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 9pt;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .nav-pill.active {
+    background: var(--accent-purple);
+    color: #ffffff;
+    border-color: var(--accent-purple);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+  }
+
+  .app-section { display: none; }
+  .app-section.active { display: block; }
+
+  /* Library & Cards Style */
+  .section-heading {
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--accent-purple);
+    margin-bottom: 10px;
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+  }
+
+  .story-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .story-card:hover { transform: translateY(-2px); }
+
+  .story-badge {
+    background: var(--card-inner);
+    color: var(--accent-cyan);
+    font-size: 7.5pt;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  /* Reader Studio View */
+  .reader-studio {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
     padding: 20px;
-    box-sizing: border-box;
     box-shadow: var(--shadow);
   }
 
-  @media (min-width: 768px) { .section-card { flex: 0 0 460px; } }
-
-  .section-title {
-    font-size: 11.5pt;
-    font-weight: 800;
-    color: var(--accent-blue);
-    margin-bottom: 12px;
-  }
-
-  .learning-tabs {
+  .chapter-selector {
     display: flex;
-    gap: 4px;
-    margin-bottom: 12px;
+    gap: 6px;
+    margin: 10px 0 15px 0;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .chap-tab {
     background: var(--card-inner);
-    padding: 4px;
-    border-radius: 14px;
-  }
-  .ltab-btn {
-    flex: 1;
-    background: transparent;
-    border: none;
-    padding: 7px 2px;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 8pt;
-    cursor: pointer;
+    border: 1px solid var(--border);
     color: var(--text-secondary);
-    text-align: center;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 8pt;
+    font-weight: bold;
+    cursor: pointer;
   }
-  .ltab-btn.active {
-    background: var(--card-bg);
-    color: var(--accent-blue);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  .chap-tab.active {
+    background: var(--accent-purple);
+    color: #fff;
+    border-color: var(--accent-purple);
   }
 
-  .learning-panel { display: none; }
-  .learning-panel.active { display: block; }
+  .story-text-box {
+    background: var(--card-inner);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 15px;
+    max-height: 320px;
+    overflow-y: auto;
+  }
 
-  .form-group { margin-bottom: 8px; }
+  .vocab-highlight-box {
+    background: var(--card-inner);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px;
+    margin-top: 10px;
+  }
 
+  .btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 9pt;
+    cursor: pointer;
+    margin-top: 6px;
+  }
+  .btn-purple { background: var(--accent-purple); color: #fff; }
+  .btn-cyan { background: var(--accent-cyan); color: #fff; }
+
+  /* Input fields for custom vocabulary */
   input, select {
     width: 100%;
-    padding: 9px 12px;
+    padding: 10px;
     border-radius: 12px;
     border: 1px solid var(--border);
     background: var(--card-bg);
@@ -183,113 +240,7 @@
     box-sizing: border-box;
     font-size: 9pt;
     outline: none;
-  }
-
-  .btn {
-    width: 100%;
-    padding: 9px;
-    border: none;
-    border-radius: 12px;
-    font-weight: 800;
-    font-size: 8.5pt;
-    cursor: pointer;
-    margin-top: 4px;
-  }
-  .btn:active { opacity: 0.8; }
-
-  .btn-blue { background: var(--accent-blue); color: #fff; }
-  .btn-cyan { background: var(--accent-cyan); color: #fff; }
-  .btn-yellow { background: var(--accent-yellow); color: #fff; }
-  .btn-green { background: var(--accent-green); color: #fff; }
-
-  .content-list-box {
-    background: var(--card-inner);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 10px;
-    margin-top: 8px;
-    max-height: 190px;
-    overflow-y: auto;
-  }
-
-  .item-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 8px 10px;
-    margin-bottom: 6px;
-    font-size: 8.5pt;
-  }
-
-  .badge-easy { color: var(--accent-green); font-weight: bold; font-size: 7.5pt; }
-  .badge-hard { color: var(--accent-red); font-weight: bold; font-size: 7.5pt; }
-
-  /* Stories Styling */
-  .story-levels {
-    display: flex;
-    gap: 4px;
-    justify-content: center;
     margin-bottom: 8px;
-    flex-wrap: wrap;
-  }
-  .level-tab {
-    background: var(--card-inner);
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
-    padding: 5px 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 8pt;
-  }
-  .level-tab.active {
-    background: var(--accent-blue);
-    color: #fff;
-    border-color: var(--accent-blue);
-  }
-
-  .chapter-tabs {
-    display: flex;
-    gap: 4px;
-    margin: 6px 0;
-    overflow-x: auto;
-    padding-bottom: 4px;
-  }
-  .chapter-btn {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
-    padding: 4px 8px;
-    border-radius: 8px;
-    font-size: 7.5pt;
-    font-weight: bold;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .chapter-btn.active {
-    background: var(--accent-cyan);
-    color: #fff;
-    border-color: var(--accent-cyan);
-  }
-
-  .story-reader-box {
-    background: var(--card-inner);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 12px;
-    margin-top: 4px;
-    max-height: 270px;
-    overflow-y: auto;
-  }
-
-  .reference-citation {
-    font-size: 7.2pt;
-    color: var(--text-secondary);
-    background: var(--card-bg);
-    border-left: 3px solid var(--accent-blue);
-    padding: 4px 8px;
-    border-radius: 4px;
-    margin-bottom: 6px;
   }
 
   .motivation-bar {
@@ -301,9 +252,8 @@
     text-align: center;
     font-size: 9pt;
     font-weight: 800;
-    color: var(--accent-blue);
+    color: var(--accent-purple);
     z-index: 100;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
   }
 </style>
 </head>
@@ -311,359 +261,237 @@
 
 <div class="container">
   
-  <!-- Hero Header with About Me -->
-  <div class="hero-header">
-    <div class="hero-title">My English Journey ⚡</div>
-    <div class="top-controls">
-      <div class="about-me-badge" title="About Me">
-        <span>👤 Abdulrahman | Target: C1-C2</span>
-      </div>
-      <button class="theme-toggle-btn" onclick="toggleTheme()">🌓 السمة</button>
+  <!-- iStoria Top Header -->
+  <div class="istoria-header">
+    <div class="brand-logo">
+      📖 iStoria <span style="font-size: 9pt; color: var(--text-secondary); font-weight: normal;">| English Reader</span>
+    </div>
+    <div class="top-actions">
+      <div class="user-pill">👤 Abdulrahman (C1)</div>
+      <button class="theme-btn" onclick="toggleTheme()">🌓 السمة</button>
     </div>
   </div>
 
-  <div class="swipe-hint">👈 اسحب أفقياً لتتصفح (مركز التعلم والمكتبة، تحدي الكلمات الممتع، والقصص الطويلة مفصلة) 👉</div>
-
-  <div class="slider-container">
-    
-    <!-- 1. Learning & Custom Library Section -->
-    <div class="section-card">
-      <div class="section-title">🚀 مركز التعلم التفاعلي والإضافة</div>
-      
-      <div class="learning-tabs">
-        <button class="ltab-btn active" onclick="switchLearnTab('vocab', this)">الكلمات 📚</button>
-        <button class="ltab-btn" onclick="switchLearnTab('idioms', this)">Idioms 💡</button>
-        <button class="ltab-btn" onclick="switchLearnTab('tenses', this)">الأزمنة ⏳</button>
-      </div>
-
-      <!-- Vocab Panel -->
-      <div id="learn-panel-vocab" class="learning-panel active">
-        <div style="font-size:8pt; color:var(--accent-blue); font-weight:bold; margin-bottom:6px;">✨ كلمات منوعة (سهل 🟢 وصعب 🔴):</div>
-        <button class="btn btn-blue" onclick="loadBatch('vocab')">عرض باقة الكلمات 🗂️</button>
-        
-        <div class="form-group" style="margin-top:8px;"><input type="text" id="customVocabWord" placeholder="أدخل كلمة جديدة (English)"></div>
-        <div class="form-group"><input type="text" id="customVocabMeaning" placeholder="المعنى بالعربي"></div>
-        <button class="btn btn-cyan" onclick="addCustomVocab()">إضافة إلى مكتبتي الخاصة 💾</button>
-
-        <div class="content-list-box" id="vocabDisplayList">
-          <span style="color:var(--text-secondary); font-size:8.5pt;">اضغط الزر بالأعلى لاكتشاف الكلمات...</span>
-        </div>
-      </div>
-
-      <!-- Idioms Panel -->
-      <div id="learn-panel-idioms" class="learning-panel">
-        <div style="font-size:8pt; color:var(--accent-cyan); font-weight:bold; margin-bottom:6px;">✨ مصطلحات شائعة ومتقدمة:</div>
-        <button class="btn btn-cyan" onclick="loadBatch('idioms')">عرض باقة Idioms 💡</button>
-
-        <div class="form-group" style="margin-top:8px;"><input type="text" id="customIdiomText" placeholder="أدخل مصطلحاً (English Idiom)"></div>
-        <div class="form-group"><input type="text" id="customIdiomMeaning" placeholder="المعنى والمغزى بالعربي"></div>
-        <button class="btn btn-blue" onclick="addCustomIdiom()">إضافة إلى مكتبتي الخاصة 💾</button>
-
-        <div class="content-list-box" id="idiomsDisplayList">
-          <span style="color:var(--text-secondary); font-size:8.5pt;">اضغط الزر بالأعلى لاكتشاف المصطلحات...</span>
-        </div>
-      </div>
-
-      <!-- Tenses Panel -->
-      <div id="learn-panel-tenses" class="learning-panel">
-        <div style="font-size:8pt; color:var(--accent-yellow); font-weight:bold; margin-bottom:6px;">✨ قواعد وأزمنة أساسية ومتقدمة:</div>
-        <button class="btn btn-yellow" onclick="loadBatch('tenses')">عرض باقة القواعد والأزمنة ⏳</button>
-
-        <div class="form-group" style="margin-top:8px;">
-          <select id="customTenseName">
-            <option>Present Simple (المضارع البسيط)</option>
-            <option>Present Continuous (المضارع المستمر)</option>
-            <option>Past Simple (الماضي البسيط)</option>
-            <option>Present Perfect (المضارع التام)</option>
-            <option>Conditionals (الجمل الشرطية)</option>
-          </select>
-        </div>
-        <div class="form-group"><input type="text" id="customTenseExample" placeholder="اكتب مثالاً أو ملاحظة قاعدية"></div>
-        <button class="btn btn-blue" onclick="addCustomTense()">إضافة إلى مكتبتي الخاصة 💾</button>
-
-        <div class="content-list-box" id="tensesDisplayList">
-          <span style="color:var(--text-secondary); font-size:8.5pt;">اضغط الزر بالأعلى لاكتشاف الأزمنة...</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2. New Fun Mini-Game Section (تحدي المفردات الذكي) -->
-    <div class="section-card">
-      <div class="section-title">🎮 تحدي المفردات والسرعة الممتع</div>
-      <p style="font-size: 8pt; color: var(--text-secondary); margin-top:0;">اختبر معلوماتك فورياً بطريقة تفاعلية وممتعة:</p>
-      
-      <div style="background: var(--card-inner); border: 1px solid var(--border); border-radius: 16px; padding: 14px; text-align: center; margin-top: 10px;">
-        <div id="quizQuestionNum" style="font-size: 7.5pt; font-weight: bold; color: var(--accent-cyan); margin-bottom: 4px;">السؤال 1 من 3</div>
-        <div id="quizWordTarget" style="font-size: 13pt; font-weight: 800; color: var(--accent-blue); margin-bottom: 10px;">Resilient</div>
-        <div style="font-size: 8.5pt; margin-bottom: 10px;">ما هو المعنى الأدق لهذه الكلمة؟</div>
-        
-        <div id="quizOptionsContainer" style="display: flex; flex-direction: column; gap: 6px;">
-          <!-- Generated by JS -->
-        </div>
-        
-        <div id="quizFeedback" style="font-weight: bold; font-size: 9pt; margin-top: 10px; min-height: 20px;"></div>
-      </div>
-      <button class="btn btn-green" style="margin-top: 10px;" onclick="nextQuizQuestion()">السؤال التالي 🔄</button>
-    </div>
-
-    <!-- 3. Long Multi-Chapter Stories Section -->
-    <div class="section-card" style="flex: 0 0 92%; max-width: 480px;">
-      <div class="section-title">📚 مكتبة القصص الطويلة جداً والفصول المفصلة</div>
-      <p style="font-size: 8pt; color: var(--text-secondary); margin-top:0;">قصص أطول، أحداث مشوقة، مع الاستماع والمراجع الموثوقة:</p>
-      
-      <div class="story-levels">
-        <button class="level-tab active" onclick="loadStory('S1')">القصة 1: قصر بلاكوود</button>
-        <button class="level-tab" onclick="loadStory('S2')">القصة 2: صدى الابتكار</button>
-        <button class="level-tab" onclick="loadStory('S3')">القصة 3: آفاق الكم</button>
-      </div>
-
-      <div class="reference-citation" id="storyCitation">
-        📖 Ref: Oxford Bookworms Library (Graded Reader Level 3)
-      </div>
-
-      <h4 id="storyMainTitle" style="margin:2px 0; color:var(--accent-blue); font-size:10pt;">The Mystery of Blackwood Manor</h4>
-
-      <!-- Chapter Tabs -->
-      <div class="chapter-tabs" id="chapterTabsContainer"></div>
-
-      <div class="story-reader-box" id="storyReaderContainer">
-        <h5 id="chapterTitleHeader" style="margin:0 0 6px 0; color:var(--text-primary); font-size:9pt;">Chapter 1: The Stormy Night Arrival</h5>
-        <p id="storyTextEn" style="direction:ltr; text-align:left; font-size:8.5pt; line-height:1.6; color:var(--text-primary); margin-bottom:6px;">
-          Arthur arrived at the iron gates of Blackwood Manor late at night during an unforgiving storm. The torrential rain lashed against his coat, and the howling wind swept through the centuries-old oak trees. Carrying only a leather suitcase and a faded, mysterious letter from his estranged uncle, he knew his life was about to change forever.
-        </p>
-        <p id="storyTextAr" style="font-size:8pt; color:var(--text-secondary); border-top:1px solid var(--border); padding-top:6px; margin:0 0 8px 0;">
-          [الترجمة]: وصل آرثر إلى البوابات الحديدية لقصر بلاكوود في وقت متأخر من الليل وسط عاصفة هوجاء لا تُرحم. كانت الأمطار الغزيرة تضرب معطفه، والرياح العاتية تجتاح أشجار البلوط العريقة. حاملاً حقيبة جلدية فقط ورسالة غامخة باهتة من عمه المقطوع عنه، كان يعلم أن حياته على وشك التغير للأبد.
-        </p>
-        <button class="btn btn-cyan" onclick="speakStoryText()">استمع لنطق هذا الفصل الصوتي 🔊</button>
-      </div>
-    </div>
-
+  <!-- iStoria Navigation Bar -->
+  <div class="istoria-nav">
+    <button class="nav-pill active" onclick="switchAppTab('library', this)">📚 مكتبة القصص</button>
+    <button class="nav-pill" onclick="switchAppTab('reader', this)">📖 مشغل الفصل الحالي</button>
+    <button class="nav-pill" onclick="switchAppTab('vocab', this)">🧠 مفردات القصة (Vocabulary)</button>
+    <button class="nav-pill" onclick="switchAppTab('myzone', this)">💾 مكتبتي الشخصية</button>
   </div>
+
+  <!-- 1. Library Section -->
+  <div id="section-library" class="app-section active">
+    <div class="section-heading">اختر قصتك المفضلّة وابدأ القراءة المتدرجة:</div>
+    <div class="stories-grid">
+      <div class="story-card" onclick="selectStory('S1')">
+        <span class="story-badge">Level: Upper-Intermediate (B2)</span>
+        <h3 style="margin:6px 0; font-size:11pt; color:var(--accent-purple);">The Mystery of Blackwood Manor</h3>
+        <p style="font-size:8.5pt; color:var(--text-secondary); margin:0;">قصة مشوقة تحتوي على أسرار قديمة، مفاتيح مخفية، وتحقيق ممتع.</p>
+      </div>
+      <div class="story-card" onclick="selectStory('S2')">
+        <span class="story-badge">Level: Advanced (C1)</span>
+        <h3 style="margin:6px 0; font-size:11pt; color:var(--accent-purple);">The Echoes of Innovation</h3>
+        <p style="font-size:8.5pt; color:var(--text-secondary); margin:0;">استكشاف الابتكارات التقنية والذكاء الاصطناعي بلغة متقدمة.</p>
+      </div>
+      <div class="story-card" onclick="selectStory('S3')">
+        <span class="story-badge">Level: Mastery (C1/C2)</span>
+        <h3 style="margin:6px 0; font-size:11pt; color:var(--accent-purple);">Quantum Horizons & The Mind</h3>
+        <p style="font-size:8.5pt; color:var(--text-secondary); margin:0;">فيزياء الكم، النظريات العميقة، وفلسفة الوعي والكون.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Reader Studio Section (Like iStoria Reader) -->
+  <div id="section-reader" class="app-section">
+    <div class="reader-studio">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h3 id="readerStoryTitle" style="margin:0; font-size:11.5pt; color:var(--accent-purple);">The Mystery of Blackwood Manor</h3>
+        <span id="readerLevelBadge" class="story-badge">B2</span>
+      </div>
+      
+      <!-- Chapters Tabs -->
+      <div class="chapter-selector" id="readerChaptersList"></div>
+
+      <div class="story-text-box">
+        <h4 id="chapTitleHeader" style="margin:0 0 8px 0; font-size:10pt; color:var(--text-primary);">Chapter 1: The Stormy Night Arrival</h4>
+        <p id="storyEnText" style="direction:ltr; text-align:left; font-size:9pt; line-height:1.7; margin-bottom:10px;">
+          Arthur arrived at the iron gates of Blackwood Manor late at night during an unforgiving storm...
+        </p>
+        <p id="storyArText" style="font-size:8.5pt; color:var(--text-secondary); border-top:1px solid var(--border); padding-top:8px; margin:0;">
+          [الترجمة التفاعلية]: وصل آرثر إلى البوابات الحديدية...
+        </p>
+      </div>
+
+      <button class="btn btn-cyan" onclick="speakCurrentText()">استمع للنطق الصوتي (Audio Narration) 🔊</button>
+    </div>
+  </div>
+
+  <!-- 3. Vocabulary Section -->
+  <div id="section-vocab" class="app-section">
+    <div class="reader-studio">
+      <div class="section-heading">🧠 أهم الكلمات والمصطلحات المتقدمة في القصة الحالية:</div>
+      <div id="vocabListContainer"></div>
+    </div>
+  </div>
+
+  <!-- 4. My Zone (Custom additions) -->
+  <div id="section-myzone" class="app-section">
+    <div class="reader-studio">
+      <div class="section-heading">💾 أضف كلماتك وملاحظاتك الخاصة للمكتبة:</div>
+      <input type="text" id="customWord" placeholder="الكلمة أو المصطلح (English)">
+      <input type="text" id="customMeaning" placeholder="المعنى بالعربي">
+      <button class="btn btn-purple" onclick="saveCustomWord()">حفظ في مكتبتي 📥</button>
+
+      <div id="savedCustomList" style="margin-top:12px;"></div>
+    </div>
+  </div>
+
 </div>
 
-<div class="motivation-bar" id="motivationQuote">
-  🔥 "Keep pushing towards mastery, Abdulrahman! Every chapter and word makes you stronger."
+<div class="motivation-bar">
+  ✨ "iStoria Reading Mode Active: Build your C1 vocabulary daily, Abdulrahman!"
 </div>
 
 <script>
   function toggleTheme() {
     const html = document.documentElement;
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    html.setAttribute('data-theme', newTheme);
+    const current = html.getAttribute('data-theme');
+    html.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
   }
 
-  function switchLearnTab(tabName, btn) {
-    document.querySelectorAll('.ltab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.learning-panel').forEach(p => p.classList.remove('active'));
+  function switchAppTab(tabId, btn) {
+    document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.app-section').forEach(s => s.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('learn-panel-' + tabName).classList.add('active');
+    document.getElementById('section-' + tabId).classList.add('active');
   }
 
-  // Vocab & Idioms Batches
-  const batchesData = {
-    vocab: [
-      { en: "Simple", ar: "بسيط / غير معقد", level: "easy" },
-      { en: "Journey", ar: "رحلة / مسيرة", level: "easy" },
-      { en: "Improve", ar: "تحسين / تطوير", level: "easy" },
-      { en: "Goal", ar: "هدف / غاية", level: "easy" },
-      { en: "Meticulous", ar: "دقيق للغاية وملاحظ للتفاصيل", level: "hard" },
-      { en: "Resilient", ar: "قادر على التعافي والتحمل بسرعة", level: "hard" },
-      { en: "Ubiquitous", ar: "منتشر في كل مكان / واسع الوجود", level: "hard" },
-      { en: "Ephemeral", ar: "عابر / قصير الأجل جدًا", level: "hard" }
-    ],
-    idioms: [
-      { en: "Break a leg", ar: "تمنيات بالتوفيق", level: "easy" },
-      { en: "Piece of cake", ar: "شيء سهل جداً", level: "easy" },
-      { en: "Bite the bullet", ar: "مواجهة الصعاب بشجاعة والإقدام عليها", level: "hard" },
-      { en: "Burn the midnight oil", ar: "السهر والدراسة أو العمل حتى وقت متأخر", level: "hard" }
-    ],
-    tenses: [
-      { en: "Present Simple: I study daily.", ar: "المضارع البسيط - عادات وحقائق ثابتة (سهل 🟢)" },
-      { en: "Past Simple: I traveled yesterday.", ar: "الماضي البسيط - أحداث اكتملت بالماضي (سهل 🟢)" },
-      { en: "Past Perfect: I had left before the meeting.", ar: "الماضي التام - حدث وقع قبل حدث آخر في الماضي (صعب 🔴)" }
-    ]
-  };
-
-  let myCustomVocab = [];
-  let myCustomIdioms = [];
-  let myCustomTenses = [];
-
-  function loadBatch(type) {
-    const listEl = document.getElementById(type + 'DisplayList');
-    listEl.innerHTML = '';
-    batchesData[type].forEach((item, index) => {
-      let badgeHtml = item.level === 'easy' 
-        ? '<span class="badge-easy">[سهل 🟢]</span>' 
-        : '<span class="badge-hard">[صعب 🔴]</span>';
-      
-      listEl.innerHTML += `
-        <div class="item-card">
-          <div style="font-weight:bold; color:var(--accent-blue);">${index + 1}. ${item.en} ${badgeHtml}</div>
-          <div style="color:var(--text-secondary); margin-top:2px;">${item.ar}</div>
-        </div>
-      `;
-    });
-  }
-
-  function addCustomVocab() {
-    const word = document.getElementById('customVocabWord').value;
-    const meaning = document.getElementById('customVocabMeaning').value;
-    if (!word || !meaning) return;
-    myCustomVocab.unshift({ en: word, ar: meaning });
-    document.getElementById('customVocabWord').value = '';
-    document.getElementById('customVocabMeaning').value = '';
-    renderCustomList('vocab');
-  }
-
-  function addCustomIdiom() {
-    const text = document.getElementById('customIdiomText').value;
-    const meaning = document.getElementById('customIdiomMeaning').value;
-    if (!text || !meaning) return;
-    myCustomIdioms.unshift({ en: text, ar: meaning });
-    document.getElementById('customIdiomText').value = '';
-    document.getElementById('customIdiomMeaning').value = '';
-    renderCustomList('idioms');
-  }
-
-  function addCustomTense() {
-    const tenseName = document.getElementById('customTenseName').value;
-    const ex = document.getElementById('customTenseExample').value;
-    if (!ex) return;
-    myCustomTenses.unshift({ en: tenseName, ar: ex });
-    document.getElementById('customTenseExample').value = '';
-    renderCustomList('tenses');
-  }
-
-  function renderCustomList(type) {
-    const listEl = document.getElementById(type + 'DisplayList');
-    listEl.innerHTML = '<div style="font-size:8pt; color:var(--accent-yellow); font-weight:bold; margin-bottom:4px;">📌 مكتبتي المحفوظة:</div>';
-    let data = type === 'vocab' ? myCustomVocab : (type === 'idioms' ? myCustomIdioms : myCustomTenses);
-    data.forEach((item, index) => {
-      listEl.innerHTML += `
-        <div class="item-card">
-          <div style="font-weight:bold; color:var(--accent-cyan);">${index + 1}. ${item.en}</div>
-          <div style="color:var(--text-secondary); margin-top:2px;">${item.ar}</div>
-        </div>
-      `;
-    });
-  }
-
-  // Mini-Game Quiz Logic
-  const quizData = [
-    { word: "Resilient", options: ["قادر على التعافي والتحمل بسرعة", "سريع الغضب", "كسول وغير فعال"], correct: 0 },
-    { word: "Meticulous", options: ["دقيق للغاية وملاحظ للتفاصيل", "عشوائي وغير منظم", "متردد وخائف"], correct: 0 },
-    { word: "Ephemeral", options: ["دائم وخالد", "عابر وقصير الأجل جداً", "كبير الحجم"], correct: 1 }
-  ];
-  let currentQuizIdx = 0;
-
-  function loadQuizQuestion() {
-    const q = quizData[currentQuizIdx];
-    document.getElementById('quizQuestionNum').innerText = `السؤال ${currentQuizIdx + 1} من ${quizData.length}`;
-    document.getElementById('quizWordTarget').innerText = q.word;
-    document.getElementById('quizFeedback').innerText = '';
-    
-    const container = document.getElementById('quizOptionsContainer');
-    container.innerHTML = '';
-    q.options.forEach((opt, idx) => {
-      container.innerHTML += `<button class="btn" style="background:var(--card-bg); border:1px solid var(--border); color:var(--text-primary); text-align:right; padding:8px;" onclick="checkQuizAnswer(${idx}, ${q.correct})">${opt}</button>`;
-    });
-  }
-
-  function checkQuizAnswer(selected, correct) {
-    const fb = document.getElementById('quizFeedback');
-    if (selected === correct) {
-      fb.style.color = 'var(--accent-green)';
-      fb.innerText = 'إجابة صحيحة ورائعة يا بطل! 🎯';
-    } else {
-      fb.style.color = 'var(--accent-red)';
-      fb.innerText = 'إجابة غير دقيقة، حاول مرة أخرى في السؤال القادم 💡';
-    }
-  }
-
-  function nextQuizQuestion() {
-    currentQuizIdx = (currentQuizIdx + 1) % quizData.length;
-    loadQuizQuestion();
-  }
-
-  // Long Multi-Chapter Stories with Authentic References
-  const multiChapterStories = {
+  // Stories database with chapters & vocab
+  const istoriaDatabase = {
     'S1': {
-      source: "📖 Ref: Oxford Bookworms Library (Graded Reader Level 3)",
       title: "The Mystery of Blackwood Manor",
+      level: "Upper-Intermediate (B2)",
       chapters: [
-        { title: "Chapter 1: The Stormy Night Arrival", en: "Arthur arrived at the iron gates of Blackwood Manor late at night during an unforgiving storm. The torrential rain lashed against his coat, and the howling wind swept through the centuries-old oak trees. Carrying only a leather suitcase and a faded, mysterious letter from his estranged uncle, he knew his life was about to change forever.", ar: "وصل آرثر إلى البوابات الحديدية لقصر بلاكوود في وقت متأخر من الليل وسط عاصفة هوجاء لا تُرحم. كانت الأمطار الغزيرة تضرب معطفه، والرياح العاتية تجتاح أشجار البلوط العريقة. حاملاً حقيبة جلدية فقط ورسالة غامضة باهتة من عمه المقطوع عنه، كان يعلم أن حياته على وشك التغير للأبد." },
-        { title: "Chapter 2: The Hidden Key and Library Secrets", en: "Inside the dimly lit, dusty library, Arthur discovered a heavy brass key tucked deep inside an ancient leather-bound encyclopedia. The key had a peculiar, intricate symbol engraved upon its side, pointing toward the forgotten stone cellar beneath the floorboards.", ar: "داخل المكتبة المتربة خافتة الإضاءة، اكتشف آرثر مفتاحاً نحاسياً ثقيلاً مخبأً في عمق موسوعة قديمة مجلدة بالجلد. كان المفتاح يحمل رمزاً معقداً غريباً محفوراً على جانبه، يشير إلى السرداب الحجري المنسي تحت ألواح الأرضية." },
-        { title: "Chapter 3: The Revelation of Truth", en: "Descending the spiraling stone stairs with a flickering candle, Arthur unlocked the heavy oak door. Inside lay centuries-old documents that exposed the long-buried secrets of the family lineage, restoring justice and peace to the historic manor.", ar: "نزولاً على الدرج الحجري الحلزوني بشمعة متفانية، فتح آرثر الباب الخشبي الثقيل. وفي الداخل كانت توجد وثائق تعود لقرون مضت كشفت الأسرار المدفونة منذ زمن طويل لسلالة العائلة، مما أعاد العدالة والسلام إلى القصر التاريخي." }
+        { title: "Chapter 1: The Stormy Night Arrival", en: "Arthur arrived at the iron gates of Blackwood Manor late at night during an unforgiving storm. The torrential rain lashed against his coat, and the howling wind swept through the centuries-old oak trees.", ar: "وصل آرثر إلى البوابات الحديدية لقصر بلاكوود في وقت متأخر من الليل وسط عاصفة هوجاء. كانت الأمطار الغزيرة تضرب معطفه، والرياح العاتية تجتاح أشجار البلوط." },
+        { title: "Chapter 2: The Hidden Key", en: "Inside the dimly lit library, Arthur discovered a heavy brass key tucked deep inside an ancient leather-bound encyclopedia. The key had a peculiar symbol engraved upon its side.", ar: "داخل المكتبة خافتة الإضاءة، اكتشف آرثر مفتاحاً نحاسياً ثقيلاً مخبأً في عمق موسوعة قديمة. كان المفتاح يحمل رمزاً فريداً محفوراً على جانبه." },
+        { title: "Chapter 3: The Secret Revelation", en: "Descending the spiraling stone stairs, Arthur unlocked the heavy oak door. Inside lay centuries-old documents exposing the long-buried secrets of the family lineage.", ar: "نزولاً على الدرج الحجري الحلزوني، فتح آرثر الباب الخشبي الثقيل. وفي الداخل كانت توجد وثائق تعود لقرون مضت تكشف الأسرار المدفونة للعائلة." }
+      ],
+      vocab: [
+        { word: "Torrential", meaning: "غزير جداً (للأمطار)" },
+        { word: "Peculiar", meaning: "غريب أو مميز" },
+        { word: "Lineage", meaning: "سلالة العائلة أو النسب" }
       ]
     },
     'S2': {
-      source: "📰 Ref: BBC World Service & BBC Learning English Features",
       title: "The Echoes of Innovation",
+      level: "Advanced (C1)",
       chapters: [
-        { title: "Chapter 1: The Global Technological Shift", en: "Across major metropolitan hubs worldwide, visionary engineers and software pioneers are harnessing advanced artificial intelligence to tackle complex climate crises. Sustainable green energy frameworks are evolving faster than ever anticipated.", ar: "عبر المراكز الحضرية الكبرى حول العالم، يسخر المهندسون أصحاب الرؤى ورواد البرمجيات الذكاء الاصطناعي المتقدم لمعالجة أزمات المناخ المعقدة. وتتطور أطر الطاقة الخضراء المستدامة بشكل أسرع مما كان متوقعاً." },
-        { title: "Chapter 2: The Groundbreaking Breakthrough", en: "A dedicated team of young researchers successfully engineered a revolutionary photovoltaic solar cell capable of storing double the energy output. This unprecedented scientific leap instantly captured international media headlines globally.", ar: "نجح فريق مخصص من الباحثين الشباب في هندسة خلية شمسية ضوئية ثورية قادرة على تخزين ضعف إنتاج الطاقة. وقد استحوذت هذه القفزة العلمية غير المسبوقة فوراً على عناوين وسائل الإعلام الدولية عالمياً." },
-        { title: "Chapter 3: Sustainable Urban Transformation", en: "Within a few short months, progressive cities across continents began implementing the technology on a mass scale, drastically reducing municipal carbon footprints and establishing genuinely sustainable ecosystems.", ar: "خلال بضعة أشهر قصيرة، بدأت المدن التقدمية عبر القارات في تنفيذ التكنولوجيا على نطاق واسع، مما قلل بشكل جذري من البصمات الكربونية البلديّة وأسس أنظمة بيئية مستدامة حقاً." }
+        { title: "Chapter 1: The Global Shift", en: "Across major metropolitan hubs worldwide, visionary engineers are harnessing advanced artificial intelligence to tackle complex climate crises.", ar: "عبر المراكز الحضرية الكبرى حول العالم، يسخر المهندسون أصحاب الرؤى الذكاء الاصطناعي المتقدم لمعالجة أزمات المناخ المعقدة." },
+        { title: "Chapter 2: The Breakthrough", en: "A dedicated team of young researchers successfully engineered a revolutionary photovoltaic solar cell capable of storing double the energy.", ar: "نجح فريق من الباحثين الشباب في هندسة خلية شمسية ضوئية ثورية قادرة على تخزين ضعف الطاقة." },
+        { title: "Chapter 3: Sustainable Future", en: "Progressive cities started implementing the technology on a mass scale, drastically reducing municipal carbon footprints.", ar: "بدأت المدن التقدمية في تنفيذ التكنولوجيا على نطاق واسع، مما قلل بشكل جذري من البصمات الكربونية." }
+      ],
+      vocab: [
+        { word: "Metropolitan", meaning: "حضري / متصل بالمدن الكبرى" },
+        { word: "Photovoltaic", meaning: "كهروضوئي (متعلق بالطاقة الشمسية)" },
+        { word: "Municipal", meaning: "بلدي أو خاص بالمدينة" }
       ]
     },
     'S3': {
-      source: "🎓 Ref: Oxford University Press - Advanced Scientific Literacy",
       title: "Quantum Horizons & The Mind",
+      level: "Mastery (C1/C2)",
       chapters: [
-        { title: "Chapter 1: Foundations of Quantum Reality", en: "Theoretical physics continually tests the boundaries of human intuition. Quantum mechanics demonstrates that subatomic particles can exist simultaneously in multiple superposition states until direct measurement collapses the wave function.", ar: "تختبر الفيزياء النظرية باستمرار حدود الحدس البشري. توضح ميكانيكا الكم أن الجسيمات دون الذرية يمكن أن تتواجد في وقت واحد في حالات تراكب متعددة حتى يقوم القياس المباشر بانهيار الدالة الموجية." },
-        { title: "Chapter 2: The Observer Paradox Dilemma", en: "For decades, theoretical physicists have fiercely debated the philosophical and physical implications of the observer effect. Does consciousness actively participate in reality creation, or is it purely mechanical interaction?", ar: "لعقود من الزمن، ناقش الفيزيائيون النظرية بشراسة الآثار الفلسفية والفيزيائية لتأثير الملاحظ. هل يشارك الوعي بنشاط في خلق الواقع، أم أنه تفاعل ميكانيكي بحت؟" },
-        { title: "Chapter 3: Towards a Unified Theory", en: "Synthesizing the bizarre rules of quantum mechanics with Einstein's theory of general relativity remains the ultimate frontier of modern physics, inspiring brilliant minds to formulate a comprehensive Theory of Everything.", ar: "إن دمج قواعد ميكانيكا الكم الغريبة مع نظرية النسبية العامة لأينشتاين يظل الحد الأقصى للفيزياء الحديثة، مما يلهم العقول اللامعة لصياغة نظرية متكاملة لكل شيء." }
+        { title: "Chapter 1: Quantum Realities", en: "Theoretical physics continually tests the boundaries of human intuition, demonstrating that subatomic particles exist in superposition states.", ar: "تختبر الفيزياء النظرية باستمرار حدود الحدس البشري، موضحة أن الجسيمات دون الذرية تتواجد في حالات تراكب." },
+        { title: "Chapter 2: The Observer Paradox", en: "Physicists fiercely debated whether consciousness actively participates in reality creation or if it is purely mechanical interaction.", ar: "ناقش الفيزيائيون بشراسة ما إذا كان الوعي يشارك بنشاط في خلق الواقع أم أنه تفاعل ميكانيكي." },
+        { title: "Chapter 3: The Unified Theory", en: "Synthesizing quantum mechanics with general relativity remains the ultimate frontier of modern physics.", ar: "إن دمج ميكانيكا الكم مع النسبية العامة يظل الحد الأقصى للفيزياء الحديثة." }
+      ],
+      vocab: [
+        { word: "Superposition", meaning: "تراكب (في ميكانيكا الكم)" },
+        { word: "Consciousness", meaning: "الوعي أو الإدراك" },
+        { word: "Synthesizing", meaning: "دمج أو تركيب العناصر معاً" }
       ]
     }
   };
 
-  let currentStoryKey = 'S1';
-  let currentChapterIdx = 0;
+  let activeStoryKey = 'S1';
+  let activeChapterIdx = 0;
+  let userSavedWords = [];
 
-  function loadStory(storyKey) {
-    document.querySelectorAll('.story-levels .level-tab').forEach(t => t.classList.remove('active'));
-    event.target.classList.add('active');
-    currentStoryKey = storyKey;
-    currentChapterIdx = 0;
+  function selectStory(key) {
+    activeStoryKey = key;
+    activeChapterIdx = 0;
+    renderReader();
+    renderVocab();
+    // Switch directly to reader tab like iStoria
+    switchAppTab('reader', document.querySelectorAll('.nav-pill')[1]);
+  }
 
-    const st = multiChapterStories[storyKey];
-    document.getElementById('storyCitation').innerText = st.source;
-    document.getElementById('storyMainTitle').innerText = st.title;
+  function renderReader() {
+    const st = istoriaDatabase[activeStoryKey];
+    document.getElementById('readerStoryTitle').innerText = st.title;
+    document.getElementById('readerLevelBadge').innerText = st.level;
 
-    const chapContainer = document.getElementById('chapterTabsContainer');
-    chapContainer.innerHTML = '';
+    const chapList = document.getElementById('readerChaptersList');
+    chapList.innerHTML = '';
     st.chapters.forEach((chap, idx) => {
-      let activeCls = idx === 0 ? 'active' : '';
-      chapContainer.innerHTML += `<button class="chapter-btn ${activeCls}" onclick="switchChapter(${idx}, this)">الفصل ${idx + 1}</button>`;
+      let activeCls = idx === activeChapterIdx ? 'active' : '';
+      chapList.innerHTML += `<button class="chap-tab ${activeCls}" onclick="switchChapter(${idx})">الفصل ${idx + 1}</button>`;
     });
 
-    renderCurrentChapter();
+    const currentChap = st.chapters[activeChapterIdx];
+    document.getElementById('chapTitleHeader').innerText = currentChap.title;
+    document.getElementById('storyEnText').innerText = currentChap.en;
+    document.getElementById('storyArText').innerText = '[الترجمة التفاعلية]: ' + currentChap.ar;
   }
 
-  function switchChapter(idx, btn) {
-    document.querySelectorAll('.chapter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentChapterIdx = idx;
-    renderCurrentChapter();
+  function switchChapter(idx) {
+    activeChapterIdx = idx;
+    renderReader();
   }
 
-  function renderCurrentChapter() {
-    const chap = multiChapterStories[currentStoryKey].chapters[currentChapterIdx];
-    document.getElementById('chapterTitleHeader').innerText = chap.title;
-    document.getElementById('storyTextEn').innerText = chap.en;
-    document.getElementById('storyTextAr').innerText = '[الترجمة]: ' + chap.ar;
+  function renderVocab() {
+    const st = istoriaDatabase[activeStoryKey];
+    const container = document.getElementById('vocabListContainer');
+    container.innerHTML = '';
+    st.vocab.forEach((v, index) => {
+      container.innerHTML += `
+        <div style="background:var(--card-inner); border:1px solid var(--border); border-radius:10px; padding:10px; margin-bottom:8px;">
+          <div style="font-weight:bold; color:var(--accent-purple); font-size:9.5pt;">${index + 1}. ${v.word}</div>
+          <div style="color:var(--text-secondary); font-size:8.5pt; margin-top:2px;">${v.meaning}</div>
+        </div>
+      `;
+    });
   }
 
-  function speakStoryText() {
-    const text = document.getElementById('storyTextEn').innerText;
+  function speakCurrentText() {
+    const text = document.getElementById('storyEnText').innerText;
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'en-US';
     window.speechSynthesis.speak(utterance);
   }
 
-  // Initial Load calls
-  loadStory('S1');
-  loadQuizQuestion();
+  function saveCustomWord() {
+    const w = document.getElementById('customWord').value;
+    const m = document.getElementById('customMeaning').value;
+    if (!w || !m) return;
+    userSavedWords.unshift({ word: w, meaning: m });
+    document.getElementById('customWord').value = '';
+    document.getElementById('customMeaning').value = '';
+    
+    const listEl = document.getElementById('savedCustomList');
+    listEl.innerHTML = '<div style="font-size:8.5pt; font-weight:bold; color:var(--accent-cyan); margin-bottom:6px;">📌 كلماتك المحفوظة:</div>';
+    userSavedWords.forEach((item, i) => {
+      listEl.innerHTML += `
+        <div style="background:var(--card-inner); border:1px solid var(--border); border-radius:10px; padding:8px; margin-bottom:6px; font-size:8.5pt;">
+          <strong style="color:var(--accent-purple);">${i+1}. ${item.word}</strong>: ${item.meaning}
+        </div>
+      `;
+    });
+  }
+
+  // Initial setup call
+  renderReader();
+  renderVocab();
 </script>
 
 </body>
