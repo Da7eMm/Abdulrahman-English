@@ -6,16 +6,15 @@
 <title>My English Journey</title>
 <style>
   :root {
-    --bg-color: #080f1e;
-    --card-bg: rgba(255, 255, 255, 0.08);
-    --card-inner: rgba(15, 23, 42, 0.7);
-    --border: rgba(255, 255, 255, 0.15);
-    --accent-blue: #38bdf8;
-    --accent-cyan: #22d3ee;
-    --accent-yellow: #fbbf24;
-    --accent-white: #ffffff;
-    --text-primary: #ffffff;
-    --text-secondary: #bae6fd;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --card-inner: #f1f5f9;
+    --border: #e2e8f0;
+    --accent-blue: #0284c7;
+    --accent-cyan: #0ea5e9;
+    --accent-yellow: #d97706;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
   }
 
   body {
@@ -30,38 +29,39 @@
   .container { max-width: 950px; margin: 0 auto; }
 
   .hero-header {
-    background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(34, 211, 238, 0.05));
+    background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
     border: 1px solid var(--border);
     border-radius: 24px;
     padding: 24px;
     text-align: center;
     margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
   }
 
   .hero-title {
-    font-size: 26pt;
+    font-size: 24pt;
     font-weight: 800;
-    color: var(--accent-yellow);
+    color: var(--accent-blue);
     margin: 0 0 8px 0;
   }
 
   .about-me-badge {
     display: inline-block;
-    background: rgba(15, 23, 42, 0.7);
+    background: #ffffff;
     border: 1px solid var(--accent-cyan);
-    padding: 8px 16px;
-    border-radius: 14px;
-    font-size: 10.5pt;
-    color: var(--text-secondary);
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 10pt;
+    color: var(--accent-cyan);
     direction: ltr;
-    font-weight: 600;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
   }
 
   .swipe-hint {
     text-align: center;
     color: var(--accent-yellow);
-    font-size: 11pt;
+    font-size: 10.5pt;
     margin-bottom: 15px;
     font-weight: 700;
   }
@@ -83,12 +83,11 @@
     max-width: 440px;
     scroll-snap-align: center;
     background: var(--card-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border);
     border-radius: 24px;
     padding: 22px;
     box-sizing: border-box;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
   }
 
   @media (min-width: 768px) { .section-card { flex: 0 0 440px; } }
@@ -96,9 +95,42 @@
   .section-title {
     font-size: 13pt;
     font-weight: 800;
-    color: var(--accent-yellow);
+    color: var(--accent-blue);
     margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
+
+  /* Sub-tabs inside Learning Section */
+  .learning-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+    background: var(--card-inner);
+    padding: 4px;
+    border-radius: 14px;
+  }
+  .ltab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 8px 4px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 9pt;
+    cursor: pointer;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+  .ltab-btn.active {
+    background: #ffffff;
+    color: var(--accent-blue);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+
+  .learning-panel { display: none; }
+  .learning-panel.active { display: block; }
 
   .form-group { margin-bottom: 12px; }
 
@@ -107,10 +139,10 @@
     padding: 12px;
     border-radius: 12px;
     border: 1px solid var(--border);
-    background: var(--card-inner);
-    color: #fff;
+    background: #ffffff;
+    color: var(--text-primary);
     box-sizing: border-box;
-    font-size: 10.5pt;
+    font-size: 10pt;
     outline: none;
   }
 
@@ -120,15 +152,15 @@
     border: none;
     border-radius: 12px;
     font-weight: 800;
-    font-size: 10.5pt;
+    font-size: 10pt;
     cursor: pointer;
     margin-top: 6px;
   }
   .btn:active { opacity: 0.8; }
 
-  .btn-yellow { background: var(--accent-yellow); color: #080f1e; }
-  .btn-cyan { background: var(--accent-cyan); color: #080f1e; }
-  .btn-blue { background: var(--accent-blue); color: #080f1e; }
+  .btn-blue { background: var(--accent-blue); color: #fff; }
+  .btn-cyan { background: var(--accent-cyan); color: #fff; }
+  .btn-yellow { background: var(--accent-yellow); color: #fff; }
 
   .save-box {
     background: var(--card-inner);
@@ -136,17 +168,17 @@
     border-radius: 14px;
     padding: 12px;
     margin-top: 14px;
-    max-height: 150px;
+    max-height: 140px;
     overflow-y: auto;
   }
 
   .item-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: #ffffff;
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 6px;
-    font-size: 10pt;
+    font-size: 9.5pt;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -162,12 +194,12 @@
   .opt-btn {
     background: var(--card-inner);
     border: 1px solid var(--border);
-    color: #fff;
+    color: var(--text-primary);
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
     font-weight: 700;
-    font-size: 9.5pt;
+    font-size: 9pt;
     text-align: center;
   }
 
@@ -181,40 +213,41 @@
   .level-tab {
     background: var(--card-inner);
     border: 1px solid var(--border);
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: 12px;
+    color: var(--text-secondary);
+    padding: 6px 10px;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: 700;
-    font-size: 9pt;
+    font-size: 8.5pt;
   }
   .level-tab.active {
-    background: var(--accent-yellow);
-    color: #080f1e;
-    border-color: var(--accent-yellow);
+    background: var(--accent-blue);
+    color: #fff;
+    border-color: var(--accent-blue);
   }
 
   .story-reader-box {
     background: var(--card-inner);
-    border: 1px solid var(--accent-cyan);
+    border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 15px;
+    padding: 14px;
     margin-top: 10px;
-    max-height: 320px;
+    max-height: 300px;
     overflow-y: auto;
   }
 
   .motivation-bar {
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    background: rgba(8, 15, 30, 0.95);
+    background: #ffffff;
     border-top: 1px solid var(--border);
     padding: 12px;
     text-align: center;
-    font-size: 10.5pt;
+    font-size: 10pt;
     font-weight: 800;
-    color: var(--accent-yellow);
+    color: var(--accent-blue);
     z-index: 100;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.03);
   }
 </style>
 </head>
@@ -227,61 +260,69 @@
     <div class="about-me-badge">👤 Abdulrahman | Aiming for C1 & C2</div>
   </div>
 
-  <div class="swipe-hint">👈 اسحب أفقياً لتتصفح الأقسام المستقلة (Vocab, Idioms, Tenses, Stories) 👉</div>
+  <div class="swipe-hint">👈 اسحب أفقياً لتتصفح الأقسام (قسم التعلم المتكامل & مكتبة قصص BBC/Oxford) 👉</div>
 
   <div class="slider-container">
     
-    <!-- 1. Vocabulary Section -->
+    <!-- 1. Unified Learning Section (Vocab, Idioms, Tenses) -->
     <div class="section-card">
-      <div class="section-title">📚 Vocabulary Bank</div>
-      <div class="form-group"><input type="text" id="vocabWord" placeholder="English Word"></div>
-      <div class="form-group"><input type="text" id="vocabMeaning" placeholder="المعنى بالعربي"></div>
-      <button class="btn btn-yellow" onclick="addVocab()">حفظ الكلمة 💾</button>
-      <div class="save-box">
-        <div style="color:var(--accent-yellow); font-size:9.5pt; font-weight:700; margin-bottom:6px;">الكلمات المحفوظة:</div>
-        <div id="vocabSavedList"><span style="color:#64748b; font-size:9pt;">لا توجد كلمات بعد</span></div>
+      <div class="section-title">🎯 قسم التعلم الاحترافي</div>
+      
+      <div class="learning-tabs">
+        <button class="ltab-btn active" onclick="switchTab('vocab', this)">الكلمات 📚</button>
+        <button class="ltab-btn" onclick="switchTab('idioms', this)">Idioms 💡</button>
+        <button class="ltab-btn" onclick="switchTab('tenses', this)">الأزمنة ⏳</button>
       </div>
-      <hr style="border-color:var(--border); margin:12px 0;">
-      <button class="btn btn-blue" onclick="startVocabPractice()">تمرين الاختيار من متعدد 🎯</button>
-      <div id="vocabPracticeArea"></div>
+
+      <!-- Vocab Panel -->
+      <div id="panel-vocab" class="learning-panel active">
+        <div class="form-group"><input type="text" id="vocabWord" placeholder="English Word"></div>
+        <div class="form-group"><input type="text" id="vocabMeaning" placeholder="المعنى بالعربي"></div>
+        <button class="btn btn-blue" onclick="addVocab()">حفظ الكلمة 💾</button>
+        <div class="save-box">
+          <div style="color:var(--accent-blue); font-size:9pt; font-weight:700; margin-bottom:6px;">الكلمات المحفوظة:</div>
+          <div id="vocabSavedList"><span style="color:#94a3b8; font-size:8.5pt;">لا توجد كلمات بعد</span></div>
+        </div>
+        <button class="btn btn-cyan" onclick="startVocabPractice()" style="margin-top:10px;">تمرين الاختيار من متعدد 🎯</button>
+        <div id="vocabPracticeArea"></div>
+      </div>
+
+      <!-- Idioms Panel -->
+      <div id="panel-idioms" class="learning-panel">
+        <div class="form-group"><input type="text" id="idiomText" placeholder="English Idiom (e.g. Break a leg)"></div>
+        <div class="form-group"><input type="text" id="idiomMeaning" placeholder="المعنى والمغزى بالعربي"></div>
+        <button class="btn btn-blue" onclick="addIdiom()">حفظ المصطلح 💾</button>
+        <div class="save-box" style="max-height:210px;">
+          <div style="color:var(--accent-blue); font-size:9pt; font-weight:700; margin-bottom:6px;">المصطلحات المحفوظة:</div>
+          <div id="idiomSavedList"><span style="color:#94a3b8; font-size:8.5pt;">لا توجد مصطلحات بعد</span></div>
+        </div>
+      </div>
+
+      <!-- Tenses Panel -->
+      <div id="panel-tenses" class="learning-panel">
+        <div class="form-group">
+          <select id="tenseSelect">
+            <option>Present Simple (المضارع البسيط)</option>
+            <option>Present Continuous (المضارع المستمر)</option>
+            <option>Past Simple (الماضي البسيط)</option>
+            <option>Future Simple (المستقبل البسيط)</option>
+            <option>Present Perfect (المضارع التام)</option>
+          </select>
+        </div>
+        <div class="form-group"><input type="text" id="tenseExample" placeholder="اكتب مثالاً لجملة بالزمن"></div>
+        <button class="btn btn-blue" onclick="addTense()">حفظ الزمن والمثال 💾</button>
+        <div class="save-box" style="max-height:210px;">
+          <div style="color:var(--accent-blue); font-size:9pt; font-weight:700; margin-bottom:6px;">الأزمنة المحفوظة:</div>
+          <div id="tenseSavedList"><span style="color:#94a3b8; font-size:8.5pt;">لا توجد أزمنة محفوظة بعد</span></div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- 2. Idioms Section -->
-    <div class="section-card">
-      <div class="section-title">💡 Idioms & Phrases</div>
-      <div class="form-group"><input type="text" id="idiomText" placeholder="English Idiom (e.g. Break a leg)"></div>
-      <div class="form-group"><input type="text" id="idiomMeaning" placeholder="المعنى والمغزى بالعربي"></div>
-      <button class="btn btn-yellow" onclick="addIdiom()">حفظ المصطلح 💾</button>
-      <div class="save-box">
-        <div style="color:var(--accent-yellow); font-size:9.5pt; font-weight:700; margin-bottom:6px;">المصطلحات المحفوظة:</div>
-        <div id="idiomSavedList"><span style="color:#64748b; font-size:9pt;">لا توجد مصطلحات بعد</span></div>
-      </div>
-    </div>
-
-    <!-- 3. Tenses Section -->
-    <div class="section-card">
-      <div class="section-title">⏳ Tenses Master</div>
-      <div class="form-group">
-        <select id="tenseSelect">
-          <option>Present Simple (المضارع البسيط)</option>
-          <option>Present Continuous (المضارع المستمر)</option>
-          <option>Past Simple (الماضي البسيط)</option>
-          <option>Future Simple (المستقبل البسيط)</option>
-          <option>Present Perfect (المضارع التام)</option>
-        </select>
-      </div>
-      <div class="form-group"><input type="text" id="tenseExample" placeholder="اكتب مثالاً لجملة بالزمن"></div>
-      <button class="btn btn-yellow" onclick="addTense()">حفظ الزمن والمثال 💾</button>
-      <div class="save-box">
-        <div style="color:var(--accent-yellow); font-size:9.5pt; font-weight:700; margin-bottom:6px;">الأزمنة المحفوظة:</div>
-        <div id="tenseSavedList"><span style="color:#64748b; font-size:9pt;">لا توجد أزمنة محفوظة بعد</span></div>
-      </div>
-    </div>
-
-    <!-- 4. Stories & Reading/Listening Section (A1 to C2) -->
+    <!-- 2. Oxford & BBC Stories & Reading/Listening Section -->
     <div class="section-card" style="flex: 0 0 92%; max-width: 480px;">
-      <div class="section-title">🎧📖 Stories Library (A1 - C2)</div>
-      <p style="font-size: 9pt; color: var(--text-secondary); margin-top:0;">اختر المستوى لقراءة القصة، الاستماع لها، ثم اختبار فهمك:</p>
+      <div class="section-title">📰📖 مكتبة القصص (Oxford & BBC Style)</div>
+      <p style="font-size: 8.5pt; color: var(--text-secondary); margin-top:0;">اختر المستوى لقراءة قصة مستوحاة من مصادر عالمية، الاستماع لها، ثم اختبار فهمك:</p>
       
       <div class="story-levels">
         <button class="level-tab active" onclick="loadStory('A1')">A1</button>
@@ -293,15 +334,16 @@
       </div>
 
       <div class="story-reader-box" id="storyReaderContainer">
-        <h4 id="storyHeader" style="margin:0 0 8px 0; color:var(--accent-yellow); font-size:11pt;">Level A1: The First Step (Chapter 1)</h4>
-        <p id="storyTextEn" style="direction:ltr; text-align:left; font-size:10pt; line-height:1.5; color:#fff; margin-bottom:8px;">
+        <div id="storySourceBadge" style="font-size:7.5pt; font-weight:800; color:var(--accent-blue); margin-bottom:4px;">SOURCE: OXFORD LEARNER'S READER</div>
+        <h4 id="storyHeader" style="margin:0 0 6px 0; color:var(--text-primary); font-size:10.5pt;">Level A1: The Morning Routine</h4>
+        <p id="storyTextEn" style="direction:ltr; text-align:left; font-size:9.5pt; line-height:1.5; color:#1e293b; margin-bottom:8px;">
           Tom wakes up early in the morning. He drinks a cup of coffee and opens his laptop. He wants to learn new English words every single day to achieve his goals.
         </p>
-        <p id="storyTextAr" style="font-size:9.5pt; color:var(--text-secondary); border-top:1px solid var(--border); padding-top:6px; margin:0 0 10px 0;">
+        <p id="storyTextAr" style="font-size:9pt; color:var(--text-secondary); border-top:1px solid var(--border); padding-top:6px; margin:0 0 10px 0;">
           [الترجمة]: يستيقظ توم مبكراً في الصباح. يشرب فنجان قهوة ويفتح حاسوبه. يريد تعلم كلمات إنجليزية جديدة كل يوم لتحقيق أهدافه.
         </p>
-        <button class="btn btn-cyan" onclick="speakStoryText()">استمع للنطق الصوتي 🔊</button>
-        <button class="btn btn-yellow" onclick="showStoryQuiz()" style="margin-top:6px;">اختبر فهمك للقراءة 📝</button>
+        <button class="btn btn-cyan" onclick="speakStoryText()">استمع للنطق الصوتي (Listening) 🔊</button>
+        <button class="btn btn-yellow" onclick="showStoryQuiz()" style="margin-top:6px;">اختبر فهمك للقراءة (Reading Quiz) 📝</button>
       </div>
       <div id="storyQuizBox" style="margin-top:8px;"></div>
     </div>
@@ -330,6 +372,13 @@
     document.getElementById('motivationQuote').innerText = quotes[quoteIdx];
   }, 4000);
 
+  function switchTab(tabName, btn) {
+    document.querySelectorAll('.ltab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.learning-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + tabName).classList.add('active');
+  }
+
   function addVocab() {
     const word = document.getElementById('vocabWord').value;
     const meaning = document.getElementById('vocabMeaning').value;
@@ -343,7 +392,7 @@
     const box = document.getElementById('vocabSavedList');
     box.innerHTML = '';
     vocabDB.forEach(item => {
-      box.innerHTML += `<div class="item-card"><span style="color:var(--accent-yellow); font-weight:bold;" class="en-text">${item.word}</span><span>${item.meaning}</span></div>`;
+      box.innerHTML += `<div class="item-card"><span style="color:var(--accent-blue); font-weight:bold;">${item.word}</span><span>${item.meaning}</span></div>`;
     });
   }
 
@@ -360,7 +409,7 @@
     const box = document.getElementById('idiomSavedList');
     box.innerHTML = '';
     idiomsDB.forEach(item => {
-      box.innerHTML += `<div class="item-card"><span style="color:var(--accent-yellow); font-weight:bold;" class="en-text">${item.text}</span><span>${item.meaning}</span></div>`;
+      box.innerHTML += `<div class="item-card"><span style="color:var(--accent-blue); font-weight:bold;">${item.text}</span><span>${item.meaning}</span></div>`;
     });
   }
 
@@ -376,12 +425,12 @@
     const box = document.getElementById('tenseSavedList');
     box.innerHTML = '';
     tensesDB.forEach(item => {
-      box.innerHTML += `<div class="item-card" style="display:block;"><span style="color:var(--accent-yellow); font-weight:bold; font-size:9pt;">${item.tense}</span><div style="direction:ltr; text-align:left; color:#bae6fd; margin-top:2px;">${item.ex}</div></div>`;
+      box.innerHTML += `<div class="item-card" style="display:block;"><span style="color:var(--accent-blue); font-weight:bold; font-size:8.5pt;">${item.tense}</span><div style="direction:ltr; text-align:left; color:#334155; margin-top:2px;">${item.ex}</div></div>`;
     });
   }
 
   function checkAns(btn, isCorrect) {
-    btn.style.background = isCorrect ? '#22c55e' : '#ef4444';
+    btn.style.background = isCorrect ? '#16a34a' : '#dc2626';
     btn.style.color = '#fff';
   }
 
@@ -389,7 +438,7 @@
     const area = document.getElementById('vocabPracticeArea');
     area.innerHTML = '';
     if (vocabDB.length === 0) { 
-      area.innerHTML = '<p style="color:var(--accent-yellow); font-size:9pt; margin-top:6px;">أضف كلمات أولاً لتظهر في التمارين!</p>'; 
+      area.innerHTML = '<p style="color:var(--accent-yellow); font-size:8.5pt; margin-top:6px;">أضف كلمات أولاً لتظهر في التمارين!</p>'; 
       return; 
     }
     const q = vocabDB[0];
@@ -398,7 +447,7 @@
 
     area.innerHTML = `
       <div class="item-card" style="display:block; margin-top:8px;">
-        <div style="font-weight:bold; text-align:center; font-size:11pt; margin-bottom:6px;" class="en-text">${q.word}</div>
+        <div style="font-weight:bold; text-align:center; font-size:10pt; margin-bottom:6px;">${q.word}</div>
         <div class="grid-2x2">
           <button class="opt-btn" onclick="checkAns(this, ${choices[0] === q.meaning})">${choices[0]}</button>
           <button class="opt-btn" onclick="checkAns(this, ${choices[1] === q.meaning})">${choices[1]}</button>
@@ -410,18 +459,19 @@
   }
 
   const storiesData = {
-    'A1': { title: 'Level A1: The First Step', en: 'Tom wakes up early in the morning. He drinks a cup of coffee and opens his laptop. He wants to learn new English words every single day to achieve his goals.', ar: 'يستيقظ توم مبكراً في الصباح. يشرب فنجان قهوة ويفتح حاسوبه. يريد تعلم كلمات إنجليزية جديدة كل يوم لتحقيق أهدافه.' },
-    'A2': { title: 'Level A2: A Busy Week', en: 'Sarah has a very busy week ahead. She is planning to travel to London for a short conference. She booked her flight tickets and packed her luggage carefully.', ar: 'لدى سارة أسبوع مزدحم للغاية قادم. تخطط للسفر إلى لندن لحضور مؤتمر قصير. لقد حجزت تذاكر الطيران ووضعت أمتعتها بعناية.' },
-    'B1': { title: 'Level B1: The New Career', en: 'Mark decided to change his career path after working for five years in marketing. He started taking online courses in programming and web design to build a brighter future.', ar: 'قرر مارك تغيير مساره المهني بعد العمل لمدة خمس سنوات في التسويق. بدأ في أخذ دورات عبر الإنترنت في البرمجة وتصميم وتطوير الويب لبناء مستقبل مشرق.' },
-    'B2': { title: 'Level B2: The Power of Habits', en: 'Building small daily habits can completely transform your life over time. Consistency outperforms intensity when you are aiming for advanced language fluency like C1 and C2 levels.', ar: 'بناء عادات يومية صغيرة يمكن أن يغير حياتك تماماً بمرور الوقت. الاستمرارية تتفوق على الكثافة عندما تستهدف طلاقة لغوية متقدمة مثل مستويات C1 وC2.' },
-    'C1': { title: 'Level C1: Quantum Horizons', en: 'Advanced theoretical frameworks often challenge our intuitive understanding of the physical universe. Quantum mechanics demonstrates that particles can exist in superposition states until observed.', ar: 'الأطر النظرية المتقدمة غالباً ما تتحدى فهمنا البديهي للكون الفيزيائي. ميكانيكا الكم تثبت أن الجسيمات يمكن أن تتواجد في حالات تراكب حتى تتم ملاحظتها.' },
-    'C2': { title: 'Level C2: The Art of Nuance', en: 'Mastering the absolute apex of a language requires an intricate appreciation of sociolinguistic subtleties, rhetorical nuances, and deep idiomatic structures that evade standard textbooks.', ar: 'إتقان القمة المطلقة للغة يتطلب تقديراً معقداً للفروق الدقيقة في علم الاجتماع اللغوي، والفروق البلاغية، والهياكل الاصطلاحية العميقة التي تتجنبها الكتب المدرسية العادية.' }
+    'A1': { source: "OXFORD BASIC READER", title: 'Level A1: The First Step', en: 'Tom wakes up early in the morning. He drinks a cup of coffee and opens his laptop. He wants to learn new English words every single day to achieve his goals.', ar: 'يستيقظ توم مبكراً في الصباح. يشرب فنجان قهوة ويفتح حاسوبه. يريد تعلم كلمات إنجليزية جديدة كل يوم لتحقيق أهدافه.' },
+    'A2': { source: "OXFORD STEP-BY-STEP", title: 'Level A2: A Busy Week Ahead', en: 'Sarah has a very busy week ahead. She is planning to travel to London for a short conference. She booked her flight tickets and packed her luggage carefully.', ar: 'لدى سارة أسبوع مزدحم للغاية قادم. تخطط للسفر إلى لندن لحضور مؤتمر قصير. لقد حجزت تذاكر الطيران ووضعت أمتعتها بعناية.' },
+    'B1': { source: "BBC LEARNING ENGLISH", title: 'Level B1: Adapting to Remote Work', en: 'Many companies are shifting towards flexible work policies. Employees find it challenging to maintain a healthy work-life balance while working entirely from home.', ar: 'تتحول العديد من الشركات نحو سياسات العمل المرنة. يجد الموظفون صعوبة في الحفاظ على التوازن الصحي بين العمل والحياة أثناء العمل من المنزل بالكامل.' },
+    'B2': { source: "BBC NEWS FEATURES", title: 'Level B2: The Psychology of Habits', en: 'Building small daily habits can completely transform your life over time. Consistency outperforms intensity when you are aiming for advanced language fluency like C1 and C2 levels.', ar: 'بناء عادات يومية صغيرة يمكن أن يغير حياتك تماماً بمرور الوقت. الاستمرارية تتفوق على الكثافة عندما تستهدف طلاقة لغوية متقدمة مثل مستويات C1 وC2.' },
+    'C1': { source: "BBC SCIENCE & ENVIRONMENT", title: 'Level C1: Quantum Horizons', en: 'Advanced theoretical frameworks often challenge our intuitive understanding of the physical universe. Quantum mechanics demonstrates that particles can exist in superposition states until observed.', ar: 'الأطر النظرية المتقدمة غالباً ما تتحدى فهمنا البديهي للكون الفيزيائي. ميكانيكا الكم تثبت أن الجسيمات يمكن أن تتواجد في حالات تراكب حتى تتم ملاحظتها.' },
+    'C2': { source: "OXFORD ADVANCED LITERARY", title: 'Level C2: The Art of Nuance', en: 'Mastering the absolute apex of a language requires an intricate appreciation of sociolinguistic subtleties, rhetorical nuances, and deep idiomatic structures that evade standard textbooks.', ar: 'إتقان القمة المطلقة للغة يتطلب تقديراً معقداً للفروق الدقيقة في علم الاجتماع اللغوي، والفروق البلاغية، والهياكل الاصطلاحية العميقة التي تتجنبها الكتب المدرسية العادية.' }
   };
 
   function loadStory(lvl) {
     document.querySelectorAll('.level-tab').forEach(t => t.classList.remove('active'));
     event.target.classList.add('active');
     const st = storiesData[lvl];
+    document.getElementById('storySourceBadge').innerText = 'SOURCE: ' + st.source;
     document.getElementById('storyHeader').innerText = st.title;
     document.getElementById('storyTextEn').innerText = st.en;
     document.getElementById('storyTextAr').innerText = '[الترجمة]: ' + st.ar;
@@ -438,11 +488,11 @@
   function showStoryQuiz() {
     const box = document.getElementById('storyQuizBox');
     box.innerHTML = `
-      <div style="background:rgba(15,23,42,0.85); border:1px solid var(--border); border-radius:12px; padding:12px;">
-        <p style="margin:0 0 8px 0; font-size:9.5pt; color:var(--accent-yellow);">اختبار سريع على النص المقروء:</p>
-        <p style="margin:0 0 8px 0; font-size:9pt;">هل فهمت الفكرة الأساسية من النص؟</p>
-        <button class="opt-btn" style="width:48%; display:inline-block;" onclick="alert('إجابة صحيحة ورائعة يا عبدالرحمن! 🎯')">نعم، فهمتها تماماً 👍</button>
-        <button class="opt-btn" style="width:48%; display:inline-block;" onclick="alert('حسناً، اقرأ النص مرة أخرى وركز على التفاصيل 💡')">أحتاج لإعادة القراءة 📖</button>
+      <div style="background:#ffffff; border:1px solid var(--border); border-radius:12px; padding:12px;">
+        <p style="margin:0 0 8px 0; font-size:9pt; color:var(--accent-blue); font-weight:bold;">اختبار فهم القراءة (Reading Comprehension):</p>
+        <p style="margin:0 0 8px 0; font-size:8.5pt;">هل استوعبت المحتوى والمعنى العام للنص؟</p>
+        <button class="opt-btn" style="width:48%; display:inline-block;" onclick="alert('إجابة موفقة ورائعة يا عبدالرحمن! 🎯')">نعم، فهمته تماماً 👍</button>
+        <button class="opt-btn" style="width:48%; display:inline-block;" onclick="alert('حسناً، أعد قراءة النص بتركيز أكثر 💡')">أحتاج لإعادة القراءة 📖</button>
       </div>
     `;
   }
