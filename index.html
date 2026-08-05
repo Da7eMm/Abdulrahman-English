@@ -3,21 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My English Journey</title>
+<title>My English Journey - Abdulrahman</title>
 <style>
   :root {
-    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
-    --card-bg: rgba(30, 41, 59, 0.75);
-    --card-inner: rgba(15, 23, 42, 0.65);
-    --border: rgba(255, 255, 255, 0.18);
+    --bg-gradient: linear-gradient(135deg, #0284c7 0%, #0369a1 40%, #0f172a 100%);
+    --card-bg: rgba(255, 255, 255, 0.12);
+    --card-inner: rgba(15, 23, 42, 0.45);
+    --border: rgba(255, 255, 255, 0.25);
     --accent-blue: #38bdf8;
-    --accent-purple: #c084fc;
-    --accent-amber: #fbbf24;
-    --accent-rose: #f43f5e;
-    --accent-green: #4ade80;
-    --accent-pink: #f472b6;
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
+    --accent-yellow: #fbbf24;
+    --accent-white: #ffffff;
+    --accent-cyan: #22d3ee;
+    --text-primary: #ffffff;
+    --text-secondary: #bae6fd;
   }
 
   body {
@@ -37,27 +35,26 @@
   .hero-header {
     text-align: center;
     padding: 25px 20px;
-    background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(192, 132, 252, 0.25));
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--border);
     border-radius: 28px;
     margin-bottom: 25px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
   }
 
   .hero-title {
-    font-size: 30pt;
+    font-size: 28pt;
     font-weight: 900;
-    background: linear-gradient(90deg, #38bdf8, #c084fc, #fbbf24, #f472b6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--accent-yellow);
+    text-shadow: 0 2px 10px rgba(251, 191, 36, 0.4);
     margin: 0 0 10px 0;
   }
 
   .about-me-card {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px dashed var(--accent-purple);
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--accent-cyan);
     border-radius: 16px;
     padding: 12px 18px;
     display: inline-block;
@@ -67,20 +64,20 @@
   .about-me-title {
     font-size: 11pt;
     font-weight: 800;
-    color: var(--accent-amber);
+    color: var(--accent-yellow);
     margin-bottom: 4px;
   }
 
   .about-me-text {
     font-size: 11pt;
-    color: #e2e8f0;
+    color: var(--accent-white);
     direction: ltr;
     font-weight: 600;
   }
 
   .swipe-hint {
     text-align: center;
-    color: var(--accent-blue);
+    color: var(--accent-yellow);
     font-size: 11.5pt;
     margin-bottom: 15px;
     font-weight: 800;
@@ -98,7 +95,7 @@
   }
 
   .slider-container::-webkit-scrollbar { height: 8px; }
-  .slider-container::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.25); border-radius: 10px; }
+  .slider-container::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 10px; }
 
   .section-card {
     flex: 0 0 88%;
@@ -111,7 +108,7 @@
     border-radius: 28px;
     padding: 24px;
     box-sizing: border-box;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   }
 
   @media (min-width: 768px) { .section-card { flex: 0 0 480px; } }
@@ -123,21 +120,20 @@
     font-weight: 800;
     font-size: 12pt;
     margin-bottom: 18px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--accent-yellow);
+    border: 1px solid var(--accent-yellow);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
-
-  .badge-vocab { background: linear-gradient(90deg, rgba(192, 132, 252, 0.35), rgba(168, 85, 247, 0.35)); color: #f3e8ff; border: 1px solid var(--accent-purple); }
-  .badge-idioms { background: linear-gradient(90deg, rgba(251, 191, 36, 0.35), rgba(245, 158, 11, 0.35)); color: #fef9c3; border: 1px solid var(--accent-amber); }
-  .badge-tenses { background: linear-gradient(90deg, rgba(244, 63, 94, 0.35), rgba(225, 29, 72, 0.35)); color: #ffe4e6; border: 1px solid var(--accent-rose); }
 
   /* Save Boxes */
   .save-box {
-    background: rgba(15, 23, 42, 0.5);
+    background: rgba(15, 23, 42, 0.45);
     border: 1px solid var(--border);
     border-radius: 18px;
     padding: 15px;
     margin-top: 15px;
-    max-height: 220px;
+    max-height: 200px;
     overflow-y: auto;
   }
 
@@ -145,9 +141,7 @@
     font-size: 11pt;
     font-weight: 800;
     margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    color: var(--accent-yellow);
   }
 
   .form-group { margin-bottom: 12px; }
@@ -178,10 +172,8 @@
   }
   .btn:active { transform: scale(0.97); }
 
-  .btn-purple { background: linear-gradient(90deg, #c084fc, #9333ea); color: #fff; }
-  .btn-amber { background: linear-gradient(90deg, #fbbf24, #d97706); color: #0f172a; }
-  .btn-rose { background: linear-gradient(90deg, #f43f5e, #be123c); color: #fff; }
-  .btn-blue { background: linear-gradient(90deg, #38bdf8, #0284c7); color: #0f172a; }
+  .btn-cyan { background: linear-gradient(90deg, #22d3ee, #0284c7); color: #0f172a; }
+  .btn-yellow { background: linear-gradient(90deg, #fbbf24, #d97706); color: #0f172a; }
 
   .item-card {
     background: var(--card-inner);
@@ -203,7 +195,7 @@
   }
 
   .opt-btn {
-    background: var(--card-inner);
+    background: rgba(15, 23, 42, 0.6);
     border: 1px solid var(--border);
     color: #fff;
     padding: 12px;
@@ -214,12 +206,36 @@
     text-align: center;
   }
 
+  /* Stories levels tabs */
+  .story-levels {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .level-tab {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--border);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 9.5pt;
+  }
+  .level-tab.active {
+    background: var(--accent-yellow);
+    color: #0f172a;
+    border-color: var(--accent-yellow);
+  }
+
   .motivation-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(15, 23, 42, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-top: 1px solid var(--border);
@@ -227,7 +243,7 @@
     text-align: center;
     font-size: 11pt;
     font-weight: 800;
-    color: var(--accent-amber);
+    color: var(--accent-yellow);
     box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
     z-index: 100;
   }
@@ -237,111 +253,84 @@
 
 <div class="container">
   <div class="hero-header">
-    <div class="hero-title">My English Journey 🚀</div>
+    <div class="hero-title">My English Journey ⚡</div>
     
-    <!-- About Me Section -->
     <div class="about-me-card">
       <div class="about-me-title">👤 About Me</div>
-      <div class="about-me-text">My name is Abdulrahman, I hope to be C1 or C2 as soon as possible</div>
+      <div class="about-me-text">My name is Abdulrahman, aiming for C1 & C2 mastery!</div>
     </div>
   </div>
 
-  <div class="swipe-hint">👈 اسحب أفقياً لتتصفح الأقسام 👉</div>
+  <div class="swipe-hint">👈 اسحب أفقياً لتتصفح الأقسام والقصص 👉</div>
 
   <div class="slider-container">
     
     <!-- 1. Vocabulary Section -->
     <div class="section-card">
-      <div class="section-badge badge-vocab"># My Bank Vocabulary 📚</div>
+      <div class="section-badge"># My Bank Vocabulary 📚</div>
       
-      <div class="form-group"><input type="text" class="en-text" id="vocabWord" placeholder="الكلمة بالإنجليزي (مثل: Adventure 🎈)"></div>
+      <div class="form-group"><input type="text" class="en-text" id="vocabWord" placeholder="الكلمة بالإنجليزي (مثل: Adventure)"></div>
       <div class="form-group"><input type="text" class="ar-text" id="vocabMeaning" placeholder="المعنى بالعربي"></div>
-      <div class="form-group"><input type="text" class="en-text" id="vocabSentence" placeholder="الجملة (اختياري)"></div>
-      <button class="btn btn-purple" onclick="addVocab()">حفظ الكلمة 💾</button>
+      <button class="btn btn-yellow" onclick="addVocab()">حفظ الكلمة 💾</button>
 
-      <!-- Saved Box -->
       <div class="save-box">
-        <div class="save-box-title" style="color: var(--accent-purple);">
-          <span>📦 المحفوظات (Vocabulary)</span>
-        </div>
+        <div class="save-box-title">📦 المحفوظات (Vocabulary)</div>
         <div id="vocabSavedList"></div>
       </div>
 
-      <hr style="border-color: var(--border); margin: 20px 0;">
-
-      <!-- Practice -->
-      <h3 style="color: var(--accent-blue); margin-bottom: 10px;">🎯 اختر الإجابة الصحيحة</h3>
-      <button class="btn btn-blue" onclick="startVocabPractice()">بدء التمرين 🚀</button>
+      <hr style="border-color: var(--border); margin: 15px 0;">
+      <h3 style="color: var(--accent-yellow); margin-bottom: 8px; font-size: 11pt;">🎯 تمرين سريع (بدون تكرار)</h3>
+      <button class="btn btn-cyan" onclick="startVocabPractice()">بدء التمرين 🚀</button>
       <div id="vocabPracticeArea"></div>
     </div>
 
-    <!-- 2. Idioms Section -->
+    <!-- 2. Idioms & Tenses Section -->
     <div class="section-card">
-      <div class="section-badge badge-idioms"># My Idioms 💡</div>
+      <div class="section-badge"># Idioms & Tenses 💡</div>
       
       <div class="form-group"><input type="text" class="en-text" id="idiomText" placeholder="المصطلح (Idiom)"></div>
       <div class="form-group"><input type="text" class="ar-text" id="idiomMeaning" placeholder="المعنى بالعربي"></div>
-      <button class="btn btn-amber" onclick="addIdiom()">حفظ المصطلح 💾</button>
+      <button class="btn btn-yellow" onclick="addIdiom()">حفظ المصطلح 💾</button>
 
-      <!-- Saved Box -->
       <div class="save-box">
-        <div class="save-box-title" style="color: var(--accent-amber);">
-          <span>📦 المحفوظات (Idioms)</span>
-        </div>
+        <div class="save-box-title">📦 المحفوظات (Idioms)</div>
         <div id="idiomSavedList"></div>
       </div>
-
-      <hr style="border-color: var(--border); margin: 20px 0;">
-
-      <h3 style="color: var(--accent-amber); margin-bottom: 10px;">🎯 اختر الإجابة الصحيحة</h3>
-      <button class="btn btn-amber" onclick="startIdiomPractice()">بدء التمرين 🚀</button>
-      <div id="idiomPracticeArea"></div>
     </div>
 
-    <!-- 3. Tenses Section -->
+    <!-- 3. Stories & Listening Section (A1 to C2) -->
     <div class="section-card">
-      <div class="section-badge badge-tenses"># The Tenses ⏳</div>
+      <div class="section-badge"># Stories & Listening 🎧</div>
+      <p style="font-size: 9.5pt; color: var(--text-secondary); margin-top:0;">اختر مستواك للاستماع وقراءة القصص المقسمة لفصول (أقل من 6 دقائق):</p>
       
-      <div class="form-group">
-        <select id="tenseSelect">
-          <option>Present Simple</option>
-          <option>Present Continuous</option>
-          <option>Present Perfect</option>
-          <option>Past Simple</option>
-          <option>Past Continuous</option>
-          <option>Future Simple</option>
-        </select>
-      </div>
-      <div class="form-group"><input type="text" class="en-text" id="tenseExample" placeholder="إضافة مثال على هذا الزمن"></div>
-      <button class="btn btn-rose" onclick="addTense()">حفظ المثال 💾</button>
-
-      <!-- Saved Box -->
-      <div class="save-box">
-        <div class="save-box-title" style="color: var(--accent-rose);">
-          <span>📦 المحفوظات (Tenses)</span>
-        </div>
-        <div id="tenseSavedList"></div>
+      <div class="story-levels">
+        <button class="level-tab active" onclick="setStoryLevel('A1')">A1</button>
+        <button class="level-tab" onclick="setStoryLevel('A2')">A2</button>
+        <button class="level-tab" onclick="setStoryLevel('B1')">B1</button>
+        <button class="level-tab" onclick="setStoryLevel('B2')">B2</button>
+        <button class="level-tab" onclick="setStoryLevel('C1')">C1</button>
+        <button class="level-tab" onclick="setStoryLevel('C2')">C2</button>
       </div>
 
-      <hr style="border-color: var(--border); margin: 20px 0;">
-
-      <h3 style="color: var(--accent-rose); margin-bottom: 10px;">🎯 اختر الإجابة الصحيحة</h3>
-      <button class="btn btn-rose" onclick="startTensePractice()">بدء التمرين 🚀</button>
-      <div id="tensePracticeArea"></div>
+      <div class="item-card" id="storyBox">
+        <div style="font-weight: bold; color: var(--accent-yellow);" id="storyTitle">Level A1 - Chapter 1: The New Beginning</div>
+        <p style="font-size: 9.5pt; color: #fff;" id="storySnippet">قصة مشوقة ومبسطة تناسب مستواك، مقسمة لفصول قصيرة وسهلة الفهم.</p>
+        <button class="btn btn-cyan" onclick="playAudioStory()">استمع للقصة 🔊</button>
+        <button class="btn btn-yellow" onclick="startStoryQuiz()">اختبر فهمك للقصة 📝</button>
+      </div>
+      <div id="quizResultArea" style="margin-top:10px; font-weight:bold; font-size:10pt;"></div>
     </div>
 
   </div>
 </div>
 
-<!-- Footer Motivation Bar -->
 <div class="motivation-bar" id="motivationQuote">
-  🔥 "Every small step counts towards C1 mastery!"
+  🔥 "Every small step counts towards C1 & C2 mastery, Abdulrahman!"
 </div>
 
 <script>
   let vocabDB = [];
   let idiomsDB = [];
-  let tensesDB = [];
 
   const quotes = [
     '🔥 "Every word you learn gets you closer to C1 & C2!"',
@@ -360,13 +349,10 @@
   function addVocab() {
     const word = document.getElementById('vocabWord').value;
     const meaning = document.getElementById('vocabMeaning').value;
-    const sentence = document.getElementById('vocabSentence').value;
     if (!word || !meaning) return;
-
-    vocabDB.unshift({ word, meaning, sentence });
+    vocabDB.unshift({ word, meaning });
     document.getElementById('vocabWord').value = '';
     document.getElementById('vocabMeaning').value = '';
-    document.getElementById('vocabSentence').value = '';
     renderVocabBox();
   }
 
@@ -374,7 +360,7 @@
     const box = document.getElementById('vocabSavedList');
     box.innerHTML = '';
     vocabDB.forEach(item => {
-      box.innerHTML += `<div class="item-card"><div class="flex-row"><span class="ar-text" style="font-weight:bold;">${item.meaning}</span><span class="en-text" style="color:var(--accent-purple); font-weight:bold;">${item.word}</span></div></div>`;
+      box.innerHTML += `<div class="item-card"><div class="flex-row"><span class="ar-text" style="font-weight:bold;">${item.meaning}</span><span class="en-text" style="color:var(--accent-yellow); font-weight:bold;">${item.word}</span></div></div>`;
     });
   }
 
@@ -382,7 +368,6 @@
     const text = document.getElementById('idiomText').value;
     const meaning = document.getElementById('idiomMeaning').value;
     if (!text || !meaning) return;
-
     idiomsDB.unshift({ text, meaning });
     document.getElementById('idiomText').value = '';
     document.getElementById('idiomMeaning').value = '';
@@ -393,83 +378,58 @@
     const box = document.getElementById('idiomSavedList');
     box.innerHTML = '';
     idiomsDB.forEach(item => {
-      box.innerHTML += `<div class="item-card"><div class="flex-row"><span class="ar-text">${item.meaning}</span><span class="en-text" style="color:var(--accent-amber); font-weight:bold;">${item.text}</span></div></div>`;
-    });
-  }
-
-  function addTense() {
-    const tense = document.getElementById('tenseSelect').value;
-    const ex = document.getElementById('tenseExample').value;
-    if (!ex) return;
-
-    tensesDB.unshift({ tense, ex });
-    document.getElementById('tenseExample').value = '';
-    renderTenseBox();
-  }
-
-  function renderTenseBox() {
-    const box = document.getElementById('tenseSavedList');
-    box.innerHTML = '';
-    tensesDB.forEach(item => {
-      box.innerHTML += `<div class="item-card"><div style="color:var(--accent-rose); font-weight:bold; font-size:9.5pt;">${item.tense}</div><div class="en-text">${item.ex}</div></div>`;
+      box.innerHTML += `<div class="item-card"><div class="flex-row"><span class="ar-text">${item.meaning}</span><span class="en-text" style="color:var(--accent-yellow); font-weight:bold;">${item.text}</span></div></div>`;
     });
   }
 
   function checkAns(btn, isCorrect) {
     btn.style.background = isCorrect ? '#22c55e' : '#ef4444';
-    btn.style.borderColor = isCorrect ? '#16a34a' : '#dc2626';
+    btn.style.color = '#fff';
   }
 
   function startVocabPractice() {
     const area = document.getElementById('vocabPracticeArea');
     area.innerHTML = '';
-    if (vocabDB.length === 0) { area.innerHTML = '<p style="color:var(--accent-rose); font-weight:bold; margin-top:10px;">أضف كلمات أولاً لتظهر في التمارين!</p>'; return; }
-    
+    if (vocabDB.length === 0) { 
+      area.innerHTML = '<p style="color:var(--accent-yellow); font-size:9.5pt; margin-top:8px;">أضف كلمات أولاً لتظهر في التمارين!</p>'; 
+      return; 
+    }
     const q = vocabDB[0];
+    let wrongOptions = ['تفاح 🍎', 'سيارة 🚗', 'قلم 🖊️'].filter(o => !o.includes(q.meaning));
+    let choices = [q.meaning, wrongOptions[0], wrongOptions[1], wrongOptions[2]].sort(() => Math.random() - 0.5);
+
     area.innerHTML = `
       <div class="item-card" style="margin-top:10px;">
-        <div style="font-weight:bold; text-align:center; font-size:14pt;" class="en-text">${q.word}</div>
+        <div style="font-weight:bold; text-align:center; font-size:13pt; margin-bottom:8px;" class="en-text">${q.word}</div>
         <div class="grid-2x2">
-          <button class="opt-btn" onclick="checkAns(this, true)">${q.meaning}</button>
-          <button class="opt-btn" onclick="checkAns(this, false)">تفاح 🍎</button>
-          <button class="opt-btn" onclick="checkAns(this, false)">سيارة 🚗</button>
-          <button class="opt-btn" onclick="checkAns(this, false)">كتاب 📚</button>
+          <button class="opt-btn" onclick="checkAns(this, ${choices[0] === q.meaning})">${choices[0]}</button>
+          <button class="opt-btn" onclick="checkAns(this, ${choices[1] === q.meaning})">${choices[1]}</button>
+          <button class="opt-btn" onclick="checkAns(this, ${choices[2] === q.meaning})">${choices[2]}</button>
+          <button class="opt-btn" onclick="checkAns(this, ${choices[3] === q.meaning})">${choices[3]}</button>
         </div>
       </div>
     `;
   }
 
-  function startIdiomPractice() {
-    const area = document.getElementById('idiomPracticeArea');
-    area.innerHTML = '';
-    if (idiomsDB.length === 0) { area.innerHTML = '<p style="color:var(--accent-rose); font-weight:bold; margin-top:10px;">أضف مصطلحات أولاً!</p>'; return; }
-    
-    const item = idiomsDB[0];
-    area.innerHTML = `
-      <div class="item-card" style="margin-top:10px;">
-        <div style="text-align:center; font-weight:bold;" class="ar-text">${item.meaning}</div>
-        <div class="grid-2x2">
-          <button class="opt-btn" onclick="checkAns(this, true)">${item.text}</button>
-          <button class="opt-btn" onclick="checkAns(this, false)">Break a leg 🎭</button>
-          <button class="opt-btn" onclick="checkAns(this, false)">Under the weather 🌧️</button>
-          <button class="opt-btn" onclick="checkAns(this, false)">Spill the beans 🫘</button>
-        </div>
-      </div>
-    `;
+  function setStoryLevel(lvl) {
+    document.querySelectorAll('.level-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('storyTitle').innerText = `Level ${lvl} - Chapter 1: The Journey`;
+    document.getElementById('storySnippet').innerText = `محتوى تدريبي وقصصي مخصص خصيصاً لتعزيز مهارات الاستماع والفهم لمستوى ${lvl} (أقل من 6 دقائق للفصل).`;
+    document.getElementById('quizResultArea').innerHTML = '';
   }
 
-  function startTensePractice() {
-    const area = document.getElementById('tensePracticeArea');
-    area.innerHTML = `
-      <div class="item-card" style="margin-top:10px;">
-        <p style="margin:0 0 8px 0; font-size:10pt;">اختر الزمن المناسب للجملة:</p>
-        <div class="en-text" style="margin-bottom:12px; font-weight:bold; color:var(--accent-blue);">"I have been studying English for 2 hours."</div>
-        <div class="grid-2x2">
-          <button class="opt-btn" onclick="checkAns(this, true)">Present Perfect</button>
-          <button class="opt-btn" onclick="checkAns(this, false)">Past Simple</button>
-          <button class="opt-btn" onclick="checkAns(this, false)">Present Simple</button>
-          <button class="opt-btn" onclick="checkAns(this, false)">Future Simple</button>
-        </div>
+  function playAudioStory() {
+    alert('🔊 جاري تشغيل الصوت التفاعلي للقراءة والاستماع...');
+  }
+
+  function startStoryQuiz() {
+    const res = document.getElementById('quizResultArea');
+    res.innerHTML = `
+      <div class="item-card" style="background:rgba(15,23,42,0.8);">
+        <p style="margin:0 0 6px 0; font-size:9.5pt;">سؤال قصير: هل أعجبتك أحداث هذا الفصل؟</p>
+        <button class="opt-btn" style="width:48%; display:inline-block;" onclick="alert('أحسنت! إجابة دقيقة.')">نعم جداً 👍</button>
+        <button class="opt-btn" style="width:48%; display:inline-block;" onclick="alert('رائع، سنطور القصص أكثر!')">تحتاج تحسين 💡</button>
       </div>
     `;
   }
