@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My English Journey - Advanced & Multi-Chapter</title>
+<title>My English Journey - Ultimate Edition</title>
 <style>
   :root[data-theme="light"] {
     --bg-color: #f8fafc;
@@ -45,7 +45,7 @@
     transition: background 0.3s ease, color 0.3s ease;
   }
 
-  .container { max-width: 980px; margin: 0 auto; }
+  .container { max-width: 1000px; margin: 0 auto; }
 
   .hero-header {
     background: var(--card-bg);
@@ -59,11 +59,11 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
   }
 
   .hero-title {
-    font-size: 20pt;
+    font-size: 18pt;
     font-weight: 800;
     color: var(--accent-blue);
     margin: 0;
@@ -73,6 +73,7 @@
     display: flex;
     gap: 8px;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .theme-toggle-btn {
@@ -83,24 +84,27 @@
     border-radius: 12px;
     cursor: pointer;
     font-weight: 700;
-    font-size: 9pt;
+    font-size: 8.5pt;
   }
 
   .about-me-badge {
     background: var(--card-inner);
     border: 1px solid var(--accent-cyan);
-    padding: 6px 14px;
+    padding: 8px 14px;
     border-radius: 12px;
-    font-size: 9pt;
+    font-size: 8.5pt;
     color: var(--accent-cyan);
     direction: ltr;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
   .swipe-hint {
     text-align: center;
     color: var(--accent-yellow);
-    font-size: 10pt;
+    font-size: 9.5pt;
     margin-bottom: 15px;
     font-weight: 700;
   }
@@ -118,13 +122,13 @@
   .slider-container::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 10px; }
 
   .section-card {
-    flex: 0 0 88%;
-    max-width: 450px;
+    flex: 0 0 90%;
+    max-width: 460px;
     scroll-snap-align: center;
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 24px;
-    padding: 22px;
+    padding: 20px;
     box-sizing: border-box;
     box-shadow: var(--shadow);
   }
@@ -132,16 +136,16 @@
   @media (min-width: 768px) { .section-card { flex: 0 0 460px; } }
 
   .section-title {
-    font-size: 12pt;
+    font-size: 11.5pt;
     font-weight: 800;
     color: var(--accent-blue);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   .learning-tabs {
     display: flex;
     gap: 4px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     background: var(--card-inner);
     padding: 4px;
     border-radius: 14px;
@@ -150,7 +154,7 @@
     flex: 1;
     background: transparent;
     border: none;
-    padding: 8px 2px;
+    padding: 7px 2px;
     border-radius: 10px;
     font-weight: 700;
     font-size: 8pt;
@@ -167,27 +171,27 @@
   .learning-panel { display: none; }
   .learning-panel.active { display: block; }
 
-  .form-group { margin-bottom: 10px; }
+  .form-group { margin-bottom: 8px; }
 
   input, select {
     width: 100%;
-    padding: 10px 12px;
+    padding: 9px 12px;
     border-radius: 12px;
     border: 1px solid var(--border);
     background: var(--card-bg);
     color: var(--text-primary);
     box-sizing: border-box;
-    font-size: 9.5pt;
+    font-size: 9pt;
     outline: none;
   }
 
   .btn {
     width: 100%;
-    padding: 10px;
+    padding: 9px;
     border: none;
     border-radius: 12px;
     font-weight: 800;
-    font-size: 9pt;
+    font-size: 8.5pt;
     cursor: pointer;
     margin-top: 4px;
   }
@@ -196,14 +200,15 @@
   .btn-blue { background: var(--accent-blue); color: #fff; }
   .btn-cyan { background: var(--accent-cyan); color: #fff; }
   .btn-yellow { background: var(--accent-yellow); color: #fff; }
+  .btn-green { background: var(--accent-green); color: #fff; }
 
   .content-list-box {
     background: var(--card-inner);
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 10px;
-    margin-top: 10px;
-    max-height: 220px;
+    margin-top: 8px;
+    max-height: 190px;
     overflow-y: auto;
   }
 
@@ -222,20 +227,20 @@
   /* Stories Styling */
   .story-levels {
     display: flex;
-    gap: 5px;
+    gap: 4px;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     flex-wrap: wrap;
   }
   .level-tab {
     background: var(--card-inner);
     border: 1px solid var(--border);
     color: var(--text-secondary);
-    padding: 6px 12px;
+    padding: 5px 10px;
     border-radius: 10px;
     cursor: pointer;
     font-weight: 700;
-    font-size: 8.5pt;
+    font-size: 8pt;
   }
   .level-tab.active {
     background: var(--accent-blue);
@@ -245,8 +250,8 @@
 
   .chapter-tabs {
     display: flex;
-    gap: 5px;
-    margin: 8px 0;
+    gap: 4px;
+    margin: 6px 0;
     overflow-x: auto;
     padding-bottom: 4px;
   }
@@ -254,9 +259,9 @@
     background: var(--card-bg);
     border: 1px solid var(--border);
     color: var(--text-secondary);
-    padding: 5px 10px;
+    padding: 4px 8px;
     border-radius: 8px;
-    font-size: 8pt;
+    font-size: 7.5pt;
     font-weight: bold;
     cursor: pointer;
     white-space: nowrap;
@@ -271,20 +276,20 @@
     background: var(--card-inner);
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 14px;
-    margin-top: 6px;
-    max-height: 290px;
+    padding: 12px;
+    margin-top: 4px;
+    max-height: 270px;
     overflow-y: auto;
   }
 
   .reference-citation {
-    font-size: 7.5pt;
+    font-size: 7.2pt;
     color: var(--text-secondary);
     background: var(--card-bg);
     border-left: 3px solid var(--accent-blue);
     padding: 4px 8px;
     border-radius: 4px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .motivation-bar {
@@ -292,9 +297,9 @@
     bottom: 0; left: 0; right: 0;
     background: var(--card-bg);
     border-top: 1px solid var(--border);
-    padding: 12px;
+    padding: 10px;
     text-align: center;
-    font-size: 9.5pt;
+    font-size: 9pt;
     font-weight: 800;
     color: var(--accent-blue);
     z-index: 100;
@@ -306,21 +311,24 @@
 
 <div class="container">
   
+  <!-- Hero Header with About Me -->
   <div class="hero-header">
     <div class="hero-title">My English Journey ⚡</div>
     <div class="top-controls">
+      <div class="about-me-badge" title="About Me">
+        <span>👤 Abdulrahman | Target: C1-C2</span>
+      </div>
       <button class="theme-toggle-btn" onclick="toggleTheme()">🌓 السمة</button>
-      <div class="about-me-badge">👤 Abdulrahman (C1/C2)</div>
     </div>
   </div>
 
-  <div class="swipe-hint">👈 اسحب أفقياً لتتصفح (مركز التعلم والمكتبة & قصص طويلة وفصول متعددة) 👉</div>
+  <div class="swipe-hint">👈 اسحب أفقياً لتتصفح (مركز التعلم والمكتبة، تحدي الكلمات الممتع، والقصص الطويلة مفصلة) 👉</div>
 
   <div class="slider-container">
     
     <!-- 1. Learning & Custom Library Section -->
     <div class="section-card">
-      <div class="section-title">🚀 مركز التعلم التفاعلي (مزيج سهل وصعب)</div>
+      <div class="section-title">🚀 مركز التعلم التفاعلي والإضافة</div>
       
       <div class="learning-tabs">
         <button class="ltab-btn active" onclick="switchLearnTab('vocab', this)">الكلمات 📚</button>
@@ -330,10 +338,10 @@
 
       <!-- Vocab Panel -->
       <div id="learn-panel-vocab" class="learning-panel active">
-        <div style="font-size:8pt; color:var(--accent-blue); font-weight:bold; margin-bottom:6px;">✨ 10 كلمات متنوعة المستويات (سهلة وصعبة):</div>
-        <button class="btn btn-blue" onclick="loadBatch('vocab')">عرض كلمات متنوعة (سهل + صعب) 🗂️</button>
+        <div style="font-size:8pt; color:var(--accent-blue); font-weight:bold; margin-bottom:6px;">✨ كلمات منوعة (سهل 🟢 وصعب 🔴):</div>
+        <button class="btn btn-blue" onclick="loadBatch('vocab')">عرض باقة الكلمات 🗂️</button>
         
-        <div class="form-group" style="margin-top:10px;"><input type="text" id="customVocabWord" placeholder="أدخل كلمة جديدة (English)"></div>
+        <div class="form-group" style="margin-top:8px;"><input type="text" id="customVocabWord" placeholder="أدخل كلمة جديدة (English)"></div>
         <div class="form-group"><input type="text" id="customVocabMeaning" placeholder="المعنى بالعربي"></div>
         <button class="btn btn-cyan" onclick="addCustomVocab()">إضافة إلى مكتبتي الخاصة 💾</button>
 
@@ -344,10 +352,10 @@
 
       <!-- Idioms Panel -->
       <div id="learn-panel-idioms" class="learning-panel">
-        <div style="font-size:8pt; color:var(--accent-cyan); font-weight:bold; margin-bottom:6px;">✨ مصطلحات شائعة ومتقدمة (سهل + صعب):</div>
-        <button class="btn btn-cyan" onclick="loadBatch('idioms')">عرض Idioms متنوعة 💡</button>
+        <div style="font-size:8pt; color:var(--accent-cyan); font-weight:bold; margin-bottom:6px;">✨ مصطلحات شائعة ومتقدمة:</div>
+        <button class="btn btn-cyan" onclick="loadBatch('idioms')">عرض باقة Idioms 💡</button>
 
-        <div class="form-group" style="margin-top:10px;"><input type="text" id="customIdiomText" placeholder="أدخل مصطلحاً (English Idiom)"></div>
+        <div class="form-group" style="margin-top:8px;"><input type="text" id="customIdiomText" placeholder="أدخل مصطلحاً (English Idiom)"></div>
         <div class="form-group"><input type="text" id="customIdiomMeaning" placeholder="المعنى والمغزى بالعربي"></div>
         <button class="btn btn-blue" onclick="addCustomIdiom()">إضافة إلى مكتبتي الخاصة 💾</button>
 
@@ -361,12 +369,11 @@
         <div style="font-size:8pt; color:var(--accent-yellow); font-weight:bold; margin-bottom:6px;">✨ قواعد وأزمنة أساسية ومتقدمة:</div>
         <button class="btn btn-yellow" onclick="loadBatch('tenses')">عرض باقة القواعد والأزمنة ⏳</button>
 
-        <div class="form-group" style="margin-top:10px;">
+        <div class="form-group" style="margin-top:8px;">
           <select id="customTenseName">
             <option>Present Simple (المضارع البسيط)</option>
             <option>Present Continuous (المضارع المستمر)</option>
             <option>Past Simple (الماضي البسيط)</option>
-            <option>Future Simple (المستقبل البسيط)</option>
             <option>Present Perfect (المضارع التام)</option>
             <option>Conditionals (الجمل الشرطية)</option>
           </select>
@@ -378,40 +385,56 @@
           <span style="color:var(--text-secondary); font-size:8.5pt;">اضغط الزر بالأعلى لاكتشاف الأزمنة...</span>
         </div>
       </div>
-
     </div>
 
-    <!-- 2. Oxford & BBC Multi-Chapter Stories Section -->
+    <!-- 2. New Fun Mini-Game Section (تحدي المفردات الذكي) -->
+    <div class="section-card">
+      <div class="section-title">🎮 تحدي المفردات والسرعة الممتع</div>
+      <p style="font-size: 8pt; color: var(--text-secondary); margin-top:0;">اختبر معلوماتك فورياً بطريقة تفاعلية وممتعة:</p>
+      
+      <div style="background: var(--card-inner); border: 1px solid var(--border); border-radius: 16px; padding: 14px; text-align: center; margin-top: 10px;">
+        <div id="quizQuestionNum" style="font-size: 7.5pt; font-weight: bold; color: var(--accent-cyan); margin-bottom: 4px;">السؤال 1 من 3</div>
+        <div id="quizWordTarget" style="font-size: 13pt; font-weight: 800; color: var(--accent-blue); margin-bottom: 10px;">Resilient</div>
+        <div style="font-size: 8.5pt; margin-bottom: 10px;">ما هو المعنى الأدق لهذه الكلمة؟</div>
+        
+        <div id="quizOptionsContainer" style="display: flex; flex-direction: column; gap: 6px;">
+          <!-- Generated by JS -->
+        </div>
+        
+        <div id="quizFeedback" style="font-weight: bold; font-size: 9pt; margin-top: 10px; min-height: 20px;"></div>
+      </div>
+      <button class="btn btn-green" style="margin-top: 10px;" onclick="nextQuizQuestion()">السؤال التالي 🔄</button>
+    </div>
+
+    <!-- 3. Long Multi-Chapter Stories Section -->
     <div class="section-card" style="flex: 0 0 92%; max-width: 480px;">
-      <div class="section-title">📚 مكتبة القصص الطويلة (Oxford & BBC)</div>
-      <p style="font-size: 8.5pt; color: var(--text-secondary); margin-top:0;">اختر القصة والمستوى لتصفح الفصول الكاملة والاستماع الصوتي:</p>
+      <div class="section-title">📚 مكتبة القصص الطويلة جداً والفصول المفصلة</div>
+      <p style="font-size: 8pt; color: var(--text-secondary); margin-top:0;">قصص أطول، أحداث مشوقة، مع الاستماع والمراجع الموثوقة:</p>
       
       <div class="story-levels">
-        <button class="level-tab active" onclick="loadStory('S1')">القصة 1: لغز بلاكوود (B1)</button>
-        <button class="level-tab" onclick="loadStory('S2')">القصة 2: الابتكار (B2/C1)</button>
-        <button class="level-tab" onclick="loadStory('S3')">القصة 3: آفاق الكم (C1/C2)</button>
+        <button class="level-tab active" onclick="loadStory('S1')">القصة 1: قصر بلاكوود</button>
+        <button class="level-tab" onclick="loadStory('S2')">القصة 2: صدى الابتكار</button>
+        <button class="level-tab" onclick="loadStory('S3')">القصة 3: آفاق الكم</button>
       </div>
 
       <div class="reference-citation" id="storyCitation">
-        📖 Reference: Oxford Bookworms Library (Graded Readers Series)
+        📖 Ref: Oxford Bookworms Library (Graded Reader Level 3)
       </div>
 
-      <h4 id="storyMainTitle" style="margin:4px 0; color:var(--accent-blue); font-size:10.5pt;">The Mystery of Blackwood Manor</h4>
+      <h4 id="storyMainTitle" style="margin:2px 0; color:var(--accent-blue); font-size:10pt;">The Mystery of Blackwood Manor</h4>
 
       <!-- Chapter Tabs -->
-      <div class="chapter-tabs" id="chapterTabsContainer">
-        <!-- Generated Dynamically -->
-      </div>
+      <div class="chapter-tabs" id="chapterTabsContainer"></div>
 
       <div class="story-reader-box" id="storyReaderContainer">
-        <h5 id="chapterTitleHeader" style="margin:0 0 6px 0; color:var(--text-primary); font-size:9.5pt;">Chapter 1: The Arrival</h5>
-        <p id="storyTextEn" style="direction:ltr; text-align:left; font-size:9pt; line-height:1.6; color:var(--text-primary); margin-bottom:8px;">
-          Arthur arrived at the gates of Blackwood Manor late at night. The rain was heavy, and the wind blew through the old trees. He carried a small suitcase and a letter from his old friend.
+        <h5 id="chapterTitleHeader" style="margin:0 0 6px 0; color:var(--text-primary); font-size:9pt;">Chapter 1: The Stormy Night Arrival</h5>
+        <p id="storyTextEn" style="direction:ltr; text-align:left; font-size:8.5pt; line-height:1.6; color:var(--text-primary); margin-bottom:6px;">
+          Arthur arrived at the iron gates of Blackwood Manor late at night during an unforgiving storm. The torrential rain lashed against his coat, and the howling wind swept through the centuries-old oak trees. Carrying only a leather suitcase and a faded, mysterious letter from his estranged uncle, he knew his life was about to change forever.
         </p>
-        <p id="storyTextAr" style="font-size:8.5pt; color:var(--text-secondary); border-top:1px solid var(--border); padding-top:6px; margin:0 0 10px 0;">
-          [الترجمة]: وصل آرثر إلى بوابات قصر بلاكوود في وقت متأخر من الليل. كانت الأمطار غزيرة، والرياح تعصف بين الأشجار القديمة. كان يحمل حقيبة صغيرة ورسالة من صديقه القديم.
+        <p id="storyTextAr" style="font-size:8pt; color:var(--text-secondary); border-top:1px solid var(--border); padding-top:6px; margin:0 0 8px 0;">
+          [الترجمة]: وصل آرثر إلى البوابات الحديدية لقصر بلاكوود في وقت متأخر من الليل وسط عاصفة هوجاء لا تُرحم. كانت الأمطار الغزيرة تضرب معطفه، والرياح العاتية تجتاح أشجار البلوط العريقة. حاملاً حقيبة جلدية فقط ورسالة غامخة باهتة من عمه المقطوع عنه، كان يعلم أن حياته على وشك التغير للأبد.
         </p>
-        <button class="btn btn-cyan" onclick="speakStoryText()">استمع لنطق هذا الفصل 🔊</button>
+        <button class="btn btn-cyan" onclick="speakStoryText()">استمع لنطق هذا الفصل الصوتي 🔊</button>
       </div>
     </div>
 
@@ -419,7 +442,7 @@
 </div>
 
 <div class="motivation-bar" id="motivationQuote">
-  🔥 "Every chapter you read builds ultimate vocabulary mastery, Abdulrahman!"
+  🔥 "Keep pushing towards mastery, Abdulrahman! Every chapter and word makes you stronger."
 </div>
 
 <script>
@@ -437,36 +460,28 @@
     document.getElementById('learn-panel-' + tabName).classList.add('active');
   }
 
-  // Mixed Vocab & Idioms Batches (Easy 🟢 + Hard 🔴)
+  // Vocab & Idioms Batches
   const batchesData = {
     vocab: [
       { en: "Simple", ar: "بسيط / غير معقد", level: "easy" },
       { en: "Journey", ar: "رحلة / مسيرة", level: "easy" },
       { en: "Improve", ar: "تحسين / تطوير", level: "easy" },
       { en: "Goal", ar: "هدف / غاية", level: "easy" },
-      { en: "Habit", ar: "عادة يومية", level: "easy" },
       { en: "Meticulous", ar: "دقيق للغاية وملاحظ للتفاصيل", level: "hard" },
       { en: "Resilient", ar: "قادر على التعافي والتحمل بسرعة", level: "hard" },
       { en: "Ubiquitous", ar: "منتشر في كل مكان / واسع الوجود", level: "hard" },
-      { en: "Ephemeral", ar: "عابر / قصير الأجل جدًا", level: "hard" },
-      { en: "Pragmatic", ar: "عملي / واقعي في التفكير", level: "hard" }
+      { en: "Ephemeral", ar: "عابر / قصير الأجل جدًا", level: "hard" }
     ],
     idioms: [
       { en: "Break a leg", ar: "تمنيات بالتوفيق", level: "easy" },
       { en: "Piece of cake", ar: "شيء سهل جداً", level: "easy" },
-      { en: "Under the weather", ar: "شعور بالإرهاق أو المرض الخفيف", level: "easy" },
-      { en: "Call it a day", ar: "إنهاء العمل لهذا اليوم", level: "easy" },
       { en: "Bite the bullet", ar: "مواجهة الصعاب بشجاعة والإقدام عليها", level: "hard" },
-      { en: "Burn the midnight oil", ar: "السهر والدراسة/العمل حتى وقت متأخر", level: "hard" },
-      { en: "Steal someone's thunder", ar: "سحب الأضواء أو سرقة فكرة شخص آخر", level: "hard" },
-      { en: "Beat around the bush", ar: "التلميح والمماطلة دون الدخول في صلب الموضوع", level: "hard" }
+      { en: "Burn the midnight oil", ar: "السهر والدراسة أو العمل حتى وقت متأخر", level: "hard" }
     ],
     tenses: [
-      { en: "Present Simple: I study daily.", ar: "المضارع البسيط - عادات وحقائق ثابته (سهل 🟢)" },
+      { en: "Present Simple: I study daily.", ar: "المضارع البسيط - عادات وحقائق ثابتة (سهل 🟢)" },
       { en: "Past Simple: I traveled yesterday.", ar: "الماضي البسيط - أحداث اكتملت بالماضي (سهل 🟢)" },
-      { en: "Present Perfect: I have completed C1 prep.", ar: "المضارع التام - إنجاز له أثر في الحاضر (متوسط 🟡)" },
-      { en: "Past Perfect: I had left before the meeting started.", ar: "الماضي التام - حدث وقع قبل حدث آخر في الماضي (صعب 🔴)" },
-      { en: "Future Perfect Continuous: I will have been working for 5 hours.", ar: "المستقبل التام المستمر - استمرارية الحدث حتى نقطة مستقبلية (صعب جداً 🔴)" }
+      { en: "Past Perfect: I had left before the meeting.", ar: "الماضي التام - حدث وقع قبل حدث آخر في الماضي (صعب 🔴)" }
     ]
   };
 
@@ -479,8 +494,8 @@
     listEl.innerHTML = '';
     batchesData[type].forEach((item, index) => {
       let badgeHtml = item.level === 'easy' 
-        ? '<span class="badge-easy">[مستوى سهل 🟢]</span>' 
-        : (item.level === 'hard' ? '<span class="badge-hard">[مستوى صعب 🔴]</span>' : '');
+        ? '<span class="badge-easy">[سهل 🟢]</span>' 
+        : '<span class="badge-hard">[صعب 🔴]</span>';
       
       listEl.innerHTML += `
         <div class="item-card">
@@ -534,33 +549,70 @@
     });
   }
 
-  // Multi-Chapter Stories with Authentic References
+  // Mini-Game Quiz Logic
+  const quizData = [
+    { word: "Resilient", options: ["قادر على التعافي والتحمل بسرعة", "سريع الغضب", "كسول وغير فعال"], correct: 0 },
+    { word: "Meticulous", options: ["دقيق للغاية وملاحظ للتفاصيل", "عشوائي وغير منظم", "متردد وخائف"], correct: 0 },
+    { word: "Ephemeral", options: ["دائم وخالد", "عابر وقصير الأجل جداً", "كبير الحجم"], correct: 1 }
+  ];
+  let currentQuizIdx = 0;
+
+  function loadQuizQuestion() {
+    const q = quizData[currentQuizIdx];
+    document.getElementById('quizQuestionNum').innerText = `السؤال ${currentQuizIdx + 1} من ${quizData.length}`;
+    document.getElementById('quizWordTarget').innerText = q.word;
+    document.getElementById('quizFeedback').innerText = '';
+    
+    const container = document.getElementById('quizOptionsContainer');
+    container.innerHTML = '';
+    q.options.forEach((opt, idx) => {
+      container.innerHTML += `<button class="btn" style="background:var(--card-bg); border:1px solid var(--border); color:var(--text-primary); text-align:right; padding:8px;" onclick="checkQuizAnswer(${idx}, ${q.correct})">${opt}</button>`;
+    });
+  }
+
+  function checkQuizAnswer(selected, correct) {
+    const fb = document.getElementById('quizFeedback');
+    if (selected === correct) {
+      fb.style.color = 'var(--accent-green)';
+      fb.innerText = 'إجابة صحيحة ورائعة يا بطل! 🎯';
+    } else {
+      fb.style.color = 'var(--accent-red)';
+      fb.innerText = 'إجابة غير دقيقة، حاول مرة أخرى في السؤال القادم 💡';
+    }
+  }
+
+  function nextQuizQuestion() {
+    currentQuizIdx = (currentQuizIdx + 1) % quizData.length;
+    loadQuizQuestion();
+  }
+
+  // Long Multi-Chapter Stories with Authentic References
   const multiChapterStories = {
     'S1': {
       source: "📖 Ref: Oxford Bookworms Library (Graded Reader Level 3)",
       title: "The Mystery of Blackwood Manor",
       chapters: [
-        { title: "Chapter 1: The Arrival", en: "Arthur arrived at the gates of Blackwood Manor late at night. The rain was heavy, and the wind blew through the old trees. He carried a small suitcase and a letter from his old friend.", ar: "وصل آرثر إلى بوابات قصر بلاكوود في وقت متأخر من الليل. كانت الأمطار غزيرة، والرياح تعصف بين الأشجار القديمة. كان يحمل حقيبة صغيرة ورسالة من صديقه القديم." },
-        { title: "Chapter 2: The Hidden Key", en: "Inside the dusty library, Arthur found a brass key tucked inside an ancient encyclopedia. The key had a strange symbol engraved on its side, pointing toward the cellar below.", ar: "داخل المكتبة المتربة، وجد آرثر مفتاحًا نحاسيًا مخبأ داخل موسوعة قديمة. كان المفتاح يحمل رمزًا غريبًا محفورًا على جانبه، يشير إلى السرداب السفلي." },
-        { title: "Chapter 3: The Secret Room", en: "Descending the stone stairs, Arthur unlocked a heavy wooden door. Behind it lay a room filled with historic documents that revealed the forgotten truth of the manor.", ar: "نزولاً على الدرج الحجري، فتح آرثر بابًا خشبيًا ثقيلاً بالمفتاح. وخلفه كانت توجد غرفة مليئة بالوثائق التاريخية التي كشفت الحقيقة المنسية للقصر." }
+        { title: "Chapter 1: The Stormy Night Arrival", en: "Arthur arrived at the iron gates of Blackwood Manor late at night during an unforgiving storm. The torrential rain lashed against his coat, and the howling wind swept through the centuries-old oak trees. Carrying only a leather suitcase and a faded, mysterious letter from his estranged uncle, he knew his life was about to change forever.", ar: "وصل آرثر إلى البوابات الحديدية لقصر بلاكوود في وقت متأخر من الليل وسط عاصفة هوجاء لا تُرحم. كانت الأمطار الغزيرة تضرب معطفه، والرياح العاتية تجتاح أشجار البلوط العريقة. حاملاً حقيبة جلدية فقط ورسالة غامضة باهتة من عمه المقطوع عنه، كان يعلم أن حياته على وشك التغير للأبد." },
+        { title: "Chapter 2: The Hidden Key and Library Secrets", en: "Inside the dimly lit, dusty library, Arthur discovered a heavy brass key tucked deep inside an ancient leather-bound encyclopedia. The key had a peculiar, intricate symbol engraved upon its side, pointing toward the forgotten stone cellar beneath the floorboards.", ar: "داخل المكتبة المتربة خافتة الإضاءة، اكتشف آرثر مفتاحاً نحاسياً ثقيلاً مخبأً في عمق موسوعة قديمة مجلدة بالجلد. كان المفتاح يحمل رمزاً معقداً غريباً محفوراً على جانبه، يشير إلى السرداب الحجري المنسي تحت ألواح الأرضية." },
+        { title: "Chapter 3: The Revelation of Truth", en: "Descending the spiraling stone stairs with a flickering candle, Arthur unlocked the heavy oak door. Inside lay centuries-old documents that exposed the long-buried secrets of the family lineage, restoring justice and peace to the historic manor.", ar: "نزولاً على الدرج الحجري الحلزوني بشمعة متفانية، فتح آرثر الباب الخشبي الثقيل. وفي الداخل كانت توجد وثائق تعود لقرون مضت كشفت الأسرار المدفونة منذ زمن طويل لسلالة العائلة، مما أعاد العدالة والسلام إلى القصر التاريخي." }
       ]
     },
     'S2': {
       source: "📰 Ref: BBC World Service & BBC Learning English Features",
       title: "The Echoes of Innovation",
       chapters: [
-        { title: "Chapter 1: A New Era", en: "In the heart of modern technological hubs, engineers are exploring artificial intelligence to solve climate challenges. Renewable energy systems are becoming more efficient than ever.", ar: "في قلب المراكز التكنولوجية الحديثة، يستكشف المهندسون الذكاء الاصطناعي لحل تحديات المناخ. وتصبح أنظمة الطاقة المتجددة أكثر كفاءة من أي وقت مضى." },
-        { title: "Chapter 2: The Breakthrough", en: "A team of young researchers successfully designed a new solar cell capable of storing double the energy. This breakthrough captured international media attention worldwide.", ar: "نجح فريق من الباحثين الشباب في تصميم خلية شمسية جديدة قادرة على تخزين ضعف الطاقة. وحاز هذا الاختراق العلمي على اهتمام وسائل الإعلام الدولية حول العالم." },
-        { title: "Chapter 3: Global Impact", en: "Within months, cities across the world started adopting the technology, significantly reducing carbon emissions and creating sustainable urban environments.", ar: "في غضون أشهر، بدأت المدن حول العالم في تبني هذه التكنولوجيا، مما قلل بشكل كبير من انبعاثات الكربون وأنشأ بيئات حضرية مستدامة." }
+        { title: "Chapter 1: The Global Technological Shift", en: "Across major metropolitan hubs worldwide, visionary engineers and software pioneers are harnessing advanced artificial intelligence to tackle complex climate crises. Sustainable green energy frameworks are evolving faster than ever anticipated.", ar: "عبر المراكز الحضرية الكبرى حول العالم، يسخر المهندسون أصحاب الرؤى ورواد البرمجيات الذكاء الاصطناعي المتقدم لمعالجة أزمات المناخ المعقدة. وتتطور أطر الطاقة الخضراء المستدامة بشكل أسرع مما كان متوقعاً." },
+        { title: "Chapter 2: The Groundbreaking Breakthrough", en: "A dedicated team of young researchers successfully engineered a revolutionary photovoltaic solar cell capable of storing double the energy output. This unprecedented scientific leap instantly captured international media headlines globally.", ar: "نجح فريق مخصص من الباحثين الشباب في هندسة خلية شمسية ضوئية ثورية قادرة على تخزين ضعف إنتاج الطاقة. وقد استحوذت هذه القفزة العلمية غير المسبوقة فوراً على عناوين وسائل الإعلام الدولية عالمياً." },
+        { title: "Chapter 3: Sustainable Urban Transformation", en: "Within a few short months, progressive cities across continents began implementing the technology on a mass scale, drastically reducing municipal carbon footprints and establishing genuinely sustainable ecosystems.", ar: "خلال بضعة أشهر قصيرة، بدأت المدن التقدمية عبر القارات في تنفيذ التكنولوجيا على نطاق واسع، مما قلل بشكل جذري من البصمات الكربونية البلديّة وأسس أنظمة بيئية مستدامة حقاً." }
       ]
     },
     'S3': {
       source: "🎓 Ref: Oxford University Press - Advanced Scientific Literacy",
       title: "Quantum Horizons & The Mind",
       chapters: [
-        { title: "Chapter 1: Theoretical Foundations", en: "Theoretical physics often challenges our fundamental perceptions of reality. Quantum superposition suggests that particles can exist in multiple states simultaneously until measured.", ar: "غالباً ما تتحدى الفيزياء النظرية تصرفاتنا وإدراكنا الأساسي للواقع. تراكب الكم يشير إلى أن الجسيمات يمكن أن تتواجد في حالات متعددة في نفس الوقت حتى يتم قياسها." },
-        { title: "Chapter 2: The Observer Paradox", en: "Scientists have debated the role of the observer for decades. Does consciousness itself influence the collapse of the wave function, or is it purely a mechanical measurement interaction?", ar: "تناظر العلماء حول دور الملاحظ لعقود. هل يؤثر الوعي ذاته في انهيار الدالة الموجية، أم أنه مجرد تفاعل قياس ميكانيكي؟" },
-        { title: "Chapter 3: Cosmic Synthesis", en: "Synthesizing quantum mechanics with general relativity remains the ultimate holy grail of modern physics, driving scientists toward a unified Theory of Everything.", ar: "يبقى الدمج بين ميكانيكا الكم والنسبية العامة الهدف الأسمى والغاية الكبرى للفيزياء الحديثة، مما يدفع العلماء نحو نظرية موحدة لكل شيء." }
+        { title: "Chapter 1: Foundations of Quantum Reality", en: "Theoretical physics continually tests the boundaries of human intuition. Quantum mechanics demonstrates that subatomic particles can exist simultaneously in multiple superposition states until direct measurement collapses the wave function.", ar: "تختبر الفيزياء النظرية باستمرار حدود الحدس البشري. توضح ميكانيكا الكم أن الجسيمات دون الذرية يمكن أن تتواجد في وقت واحد في حالات تراكب متعددة حتى يقوم القياس المباشر بانهيار الدالة الموجية." },
+        { title: "Chapter 2: The Observer Paradox Dilemma", en: "For decades, theoretical physicists have fiercely debated the philosophical and physical implications of the observer effect. Does consciousness actively participate in reality creation, or is it purely mechanical interaction?", ar: "لعقود من الزمن، ناقش الفيزيائيون النظرية بشراسة الآثار الفلسفية والفيزيائية لتأثير الملاحظ. هل يشارك الوعي بنشاط في خلق الواقع، أم أنه تفاعل ميكانيكي بحت؟" },
+        { title: "Chapter 3: Towards a Unified Theory", en: "Synthesizing the bizarre rules of quantum mechanics with Einstein's theory of general relativity remains the ultimate frontier of modern physics, inspiring brilliant minds to formulate a comprehensive Theory of Everything.", ar: "إن دمج قواعد ميكانيكا الكم الغريبة مع نظرية النسبية العامة لأينشتاين يظل الحد الأقصى للفيزياء الحديثة، مما يلهم العقول اللامعة لصياغة نظرية متكاملة لكل شيء." }
       ]
     }
   };
@@ -578,7 +630,6 @@
     document.getElementById('storyCitation').innerText = st.source;
     document.getElementById('storyMainTitle').innerText = st.title;
 
-    // Build Chapter Buttons
     const chapContainer = document.getElementById('chapterTabsContainer');
     chapContainer.innerHTML = '';
     st.chapters.forEach((chap, idx) => {
@@ -610,8 +661,9 @@
     window.speechSynthesis.speak(utterance);
   }
 
-  // Initialize chapter tabs on page load
+  // Initial Load calls
   loadStory('S1');
+  loadQuizQuestion();
 </script>
 
 </body>
